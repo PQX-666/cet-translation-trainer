@@ -2,10 +2,12 @@
   "name": "cet-translator",
   "private": true,
   "version": "1.0.0",
+  "author": "辰轩",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "verify": "node scripts/verify-data.mjs && node scripts/verify-logic.mjs && node scripts/verify-feedback.mjs",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist",
     "predeploy": "vite build"

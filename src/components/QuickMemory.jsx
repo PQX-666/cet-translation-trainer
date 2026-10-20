@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { patterns, topicPhrases, topicVocab, allTopics } from '../data'
-import { ratePattern, ratePhrase, rateVocab } from '../utils/storage'
+import { ratePattern, ratePhrase, rateVocab, loadData, saveData } from '../utils/storage'
 import { Shuffle, Filter, Undo2 } from 'lucide-react'
 
 const ratingOptions = [
@@ -32,8 +32,9 @@ export default function QuickMemory({ appData, onDataChange, navParams }) {
     if (navParams) {
       setTab(navParams.tab || 'patterns')
       setTopicFilter(navParams.filter || 'all')
-      setCurrentIdx(0)
+      setCurrentIdx(navParams.startFrom || 0)
       setShowAnswer(false)
+      setShuffled(false)
     }
   }, [navParams])
 
@@ -83,6 +84,7 @@ export default function QuickMemory({ appData, onDataChange, navParams }) {
     setTab(newTab)
     setCurrentIdx(0)
     setShowAnswer(false)
+    setShuffled(false)
     setTopicFilter('all')
   }
 
@@ -94,7 +96,7 @@ export default function QuickMemory({ appData, onDataChange, navParams }) {
 
   const handleRate = useCallback((quality) => {
     if (!current) return
-    const undoInfo = { item: current, idx: currentIdx, quality, tab, filter: topicFilter }
+    const undoInfo = { item: current, idx: currentIdx, quality, tab, filter: topicFilter, snapshot: loadData() }
     if (current.itemType === 'pattern') {
       ratePattern(current.id, quality, null)
     } else if (current.itemType === 'phrase') {
@@ -117,15 +119,9 @@ export default function QuickMemory({ appData, onDataChange, navParams }) {
 
   const handleUndo = useCallback(() => {
     if (!lastAction) return
-    // Re-rate with neutral (2=记得) to effectively undo, then go back
-    const { item, idx, quality } = lastAction
-    if (item.itemType === 'pattern') {
-      ratePattern(item.id, 2, null)
-    } else if (item.itemType === 'phrase') {
-      ratePhrase(item.id, 2, null)
-    } else if (item.itemType === 'vocab') {
-      rateVocab(item.id, 2)
-    }
+    // 直接用评分前的快照恢复，避免“再评一次记得”反而推进 SRS 阶段
+    const { idx, snapshot } = lastAction
+    saveData(snapshot)
     setCurrentIdx(idx)
     setShowAnswer(false)
     setLastAction(null)

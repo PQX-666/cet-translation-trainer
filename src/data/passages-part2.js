@@ -4,6 +4,7 @@ export const passagesPart2 = [
   // p11. 数字经济转型 (2023.12)
   {
     id: 'p11',
+    level: 'CET-6',
     title: '数字经济转型',
     year: '2023.12',
     topic: '科技成就',
@@ -97,12 +98,13 @@ export const passagesPart2 = [
   // p12. 老龄化社会 (2023.12)
   {
     id: 'p12',
+    level: 'CET-6',
     title: '老龄化社会',
     year: '2023.12',
     topic: '社会民生',
     difficulty: 2,
     fullCN: '中国正在快速进入老龄化社会。随着人均寿命的延长和生育率的下降，老年人口的比例持续上升。中国政府正积极采取措施应对人口老龄化带来的挑战，包括完善养老保障体系和发展养老服务业。社区养老和居家养老成为越来越多老年人的首选。此外，智慧养老技术的应用也为老年人提供了更便捷、更安全的生活服务。',
-    fullEN: 'China is rapidly entering an aging society. With the increase in average life expectancy and the decline in birth rates, the proportion of the elderly population has been rising continuously. The Chinese government is actively taking measures to address the challenges brought about by population aging, including improving the old-age security system and developing the elderly care service industry. Community-based elderly care and home-based elderly care have become the preferred choices for an increasing number of seniors. In addition, the application of smart elderly care technologies has provided more convenient and safer living services for the elderly.',
+    fullEN: 'China is rapidly entering an aging society. With the increase in average life expectancy and the decline in fertility rates, the proportion of the elderly population has been rising continuously. The Chinese government is actively taking measures to address the challenges brought about by population aging, including improving the old-age security system and developing the elderly care service industry. Community-based elderly care and home-based elderly care have become the preferred choices for an increasing number of seniors. In addition, the application of smart elderly care technologies has provided more convenient and safer living services for the elderly.',
     sentences: [
       {
         id: 'p12-s0',
@@ -120,29 +122,30 @@ export const passagesPart2 = [
           keyVocab: [''],
           substitutionGuide: '不会 rapidly → quickly / speedily / at a fast pace；不会 aging society → aged society / graying society',
           sentencePattern: '\'A正在快速进入老龄化社会\' → \'A is rapidly entering an aging society\'',
-          highScore: { en: '', note: 'is rapidly entering 简洁有力' },
-          lowScore: { en: '', note: 'old people society 不是标准表达 + very quickly 不如 rapidly。评分 10-12 分档。' }
+          highScore: { en: 'China is rapidly entering an aging society.', note: 'is rapidly entering 简洁有力，aging society 术语准确' },
+          lowScore: { en: 'China is very quickly becoming a society with many old people.', note: 'very quickly 不如 rapidly；society with many old people 绕开术语但意思完整。评分 10-12 分档。' }
         }
       },
       {
         id: 'p12-s1',
         cn: '随着人均寿命的延长和生育率的下降，老年人口的比例持续上升。',
-        en: 'With the increase in average life expectancy and the decline in birth rates, the proportion of the elderly population has been rising continuously.',
+        en: 'With the increase in average life expectancy and the decline in fertility rates, the proportion of the elderly population has been rising continuously.',
         annotations: [
           { fragment: 'With the increase in...and the decline in...', type: 'structure', label: '随着...的延长和...的下降', detail: 'With + the increase/decline in = 随着...的延长/下降。名词化结构表达因果背景。' },
           { fragment: 'average life expectancy', type: 'vocab', label: '人均寿命', detail: 'life expectancy = 预期寿命。average life expectancy = 人均预期寿命。' },
+          { fragment: 'fertility rates', type: 'vocab', label: '生育率', detail: 'fertility rate = 生育率，人口学术语；birth rate 是出生率，两者不能混用。' },
           { fragment: 'has been rising continuously', type: 'structure', label: '持续上升', detail: '现在完成进行时 has been rising = 一直在上升。continuously = 持续地。' }
         ],
         technique: {
           difficulty: 2,
           structure: 'With + the increase in A and the decline in B + 主语 + has been rising continuously',
-          structureAnalysis: '(With the increase in average life expectancy and the decline in birth rates) → (the proportion of the elderly population) → has been → rising continuously',
+          structureAnalysis: '(With the increase in average life expectancy and the decline in fertility rates) → (the proportion of the elderly population) → has been → rising continuously',
           whyGood: '① With + 名词结构紧凑处理双重原因 ② life expectancy 是\'预期寿命/人均寿命\'的标准说法 ③ 现在完成进行时表达持续趋势。',
           keyVocab: ['', '', ''],
-          substitutionGuide: '不会 life expectancy → average lifespan / how long people live；不会 birth rate → fertility rate / childbirth rate；不会 proportion → percentage / ratio / share',
+          substitutionGuide: '不会 life expectancy → average lifespan / how long people live；不会 fertility rate → birth rate / childbirth rate；不会 proportion → percentage / ratio / share',
           sentencePattern: '\'随着A的延长和B的下降，C的比例持续上升\' → \'With the increase in A and the decline in B, the proportion of C has been rising continuously\'',
-          highScore: { en: '', note: 'With + the increase/decline + has been rising 地道' },
-          lowScore: { en: '', note: 'Because people live longer 不如 With the increase in life expectancy + keeps going up 不如 has been rising。评分 8-10 分档。' }
+          highScore: { en: 'With the increase in average life expectancy and the decline in fertility rates, the proportion of the elderly population has been rising continuously.', note: 'With + the increase/decline + has been rising 地道' },
+          lowScore: { en: 'Because people live longer and have fewer children, old people make up a larger and larger share of the population.', note: 'Because 从句替代名词化结构，share 不如 proportion 正式；信息完整。评分 9-11 分档。' }
         }
       },
       {
@@ -162,8 +165,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 address → deal with / tackle / cope with；不会 brought about by → caused by / resulting from / triggered by；不会 old-age security → elderly security / pension security',
           sentencePattern: '\'A正积极采取措施应对B带来的挑战，包括C和D\' → \'A is actively taking measures to address the challenges brought about by B, including C and D\'',
-          highScore: { en: '', note: 'actively taking measures + brought about by + including 结构严谨' },
-          lowScore: { en: '', note: 'doing things 不如 taking measures + solve 不如 address + making...better 不如 improving + business 不如 industry。评分 8-10 分档。' }
+          highScore: { en: 'The Chinese government is actively taking measures to address the challenges brought about by population aging, including improving the old-age security system and developing the elderly care service industry.', note: 'actively taking measures + brought about by + including 结构严谨' },
+          lowScore: { en: 'The Chinese government is taking action to deal with the problems of an aging population, such as making the pension system better and developing elderly care services.', note: 'take action / deal with / make...better 较口语，但信息完整。评分 9-11 分档。' }
         }
       },
       {
@@ -183,8 +186,8 @@ export const passagesPart2 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 community-based → community / neighborhood / local；不会 preferred → first choice / favored / most popular；不会 seniors → the elderly / old people / senior citizens',
           sentencePattern: '\'A和B成为越来越多C的首选\' → \'A and B have become the preferred choices for an increasing number of C\'',
-          highScore: { en: '', note: '-based 复合词 + preferred choices + seniors 准确礼貌' },
-          lowScore: { en: '', note: '缺少 -based + first choice 不如 preferred choices + old people 重复。评分 9-11 分档。' }
+          highScore: { en: 'Community-based elderly care and home-based elderly care have become the preferred choices for an increasing number of seniors.', note: '-based 复合词 + preferred choices + seniors 准确礼貌' },
+          lowScore: { en: 'More and more old people now choose to receive care in their communities or at home.', note: '用 choose to receive care 改写，意思准确；丢失 “首选” 的名词化结构。评分 11-12 分档。' }
         }
       },
       {
@@ -204,8 +207,8 @@ export const passagesPart2 = [
           keyVocab: [''],
           substitutionGuide: '不会 smart elderly care → intelligent aged care / tech-powered senior care；不会 provided → offered / delivered / supplied',
           sentencePattern: '\'此外，A的应用也为B提供了更便捷、更安全的C\' → \'In addition, the application of A has provided more convenient and safer C for B\'',
-          highScore: { en: '', note: 'In addition + smart elderly care + more convenient and safer 表达完整' },
-          lowScore: { en: '', note: 'Also 不如 In addition + use 不如 application + given...to 不如 provided...for + old people 不如 the elderly。评分 9-11 分档。' }
+          highScore: { en: 'In addition, the application of smart elderly care technologies has provided more convenient and safer living services for the elderly.', note: 'In addition + smart elderly care + more convenient and safer 表达完整' },
+          lowScore: { en: 'Also, smart technology for old people gives them easier and safer life services.', note: 'Also / gives / easier 较口语；信息完整。评分 9-11 分档。' }
         }
       }
     ]
@@ -213,6 +216,7 @@ export const passagesPart2 = [
   // p13. 全民健身 (2023.12)
   {
     id: 'p13',
+    level: 'CET-4',
     title: '全民健身',
     year: '2023.12',
     topic: '社会民生',
@@ -236,8 +240,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 national fitness → nationwide fitness / fitness for all；不会 flourished → thrived / prospered / boomed',
           sentencePattern: '\'近年来，A在中国蓬勃开展\' → \'In recent years, A has flourished across China\'',
-          highScore: { en: '', note: 'national fitness campaign + has flourished 生动有力' },
-          lowScore: { en: '', note: 'whole-people exercise 不如 national fitness + movement 不如 campaign + developed very fast 不如 flourished。评分 9-11 分档。' }
+          highScore: { en: 'In recent years, the national fitness campaign has flourished across China.', note: 'national fitness campaign + has flourished 生动有力' },
+          lowScore: { en: 'In recent years, exercise for everyone has become very popular all over China.', note: 'exercise for everyone 不如 national fitness campaign；become very popular 不如 flourished。评分 9-11 分档。' }
         }
       },
       {
@@ -257,8 +261,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 increased investment → put more money into / spent more on；不会 fitness trail → exercise path / jogging track / walking trail',
           sentencePattern: '\'A加大了对B的投入，各地修建了大量C、D和E\' → \'A has increased investment in B, and numerous C, D, and E have been built across the country\'',
-          highScore: { en: '', note: 'has increased investment + have been built 主动被动搭配合理' },
-          lowScore: { en: '', note: 'gave more money 不如 increased investment + fields 不如 courts + were built 不如 have been built。评分 9-11 分档。' }
+          highScore: { en: 'The government has increased investment in public sports facilities, and numerous fitness trails, basketball courts, and community fitness centers have been built across the country.', note: 'has increased investment + have been built 主动被动搭配合理' },
+          lowScore: { en: 'The government spent more money on public sports facilities, and many fitness paths, basketball courts and community fitness centers were built around the country.', note: 'spent more money / were built / around 较口语；信息完整。评分 9-11 分档。' }
         }
       },
       {
@@ -278,29 +282,29 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 incorporate into → put into / mix into / blend into；不会 whether young or old → no matter young or old / both the young and old；不会 square dancing → plaza dancing / public square dancing',
           sentencePattern: '\'越来越多的人开始将A融入B——不论是C还是D都积极参与到E、F、G等各种H中来\' → \'An increasing number of people have begun to incorporate A into B — whether C or D, people are actively participating in various H such as E, F, and G\'',
-          highScore: { en: '', note: 'incorporate...into + whether young or old + square dancing 表达地道' },
-          lowScore: { en: '', note: 'More and more 不如 An increasing number + start 不如 have begun + put...into 不如 incorporate + 拆句 + dancing in squares 不如 square dancing。评分 8-10 分档。' }
+          highScore: { en: 'An increasing number of people have begun to incorporate exercise into their daily lives — whether young or old, people are actively participating in various sports such as running, swimming, and square dancing.', note: 'incorporate...into + whether young or old + square dancing 表达地道' },
+          lowScore: { en: 'More and more people are putting exercise into their daily life. Both young and old people take part in sports like running, swimming and square dancing.', note: '拆成两句，put...into 不如 incorporate；信息完整。评分 9-11 分档。' }
         }
       },
       {
         id: 'p13-s3',
         cn: '全民健身不仅改善了国民的身体素质，还促进了社会的和谐发展。',
-        en: 'National fitness has not only improved the physical health of the people but also promoted the harmonious development of society.',
+        en: 'National fitness has not only improved the physical fitness of the people but also promoted the harmonious development of society.',
         annotations: [
           { fragment: 'has not only improved...but also promoted', type: 'structure', label: '不仅改善了...还促进了', detail: 'not only...but also 连接两个现在完成时动词，表达双重成果。' },
-          { fragment: 'physical health', type: 'vocab', label: '身体素质', detail: 'physical = 身体的。physical health = 身体健康/身体素质。' },
+          { fragment: 'physical fitness', type: 'vocab', label: '身体素质', detail: 'physical fitness = 身体素质/体能，对应 fitness 一词；physical health 更偏“身体健康”。' },
           { fragment: 'harmonious development of society', type: 'vocab', label: '社会和谐发展', detail: 'harmonious = 和谐的。harmonious development = 和谐发展。' }
         ],
         technique: {
           difficulty: 2,
           structure: '主语 + has not only improved + A + but also promoted + B',
-          structureAnalysis: 'National fitness → has → not only improved (the physical health of the people) → but also promoted (the harmonious development of society)',
-          whyGood: '① not only...but also 递进结构 ② physical health 比 body quality 更自然 ③ harmonious development 标准表达。',
+          structureAnalysis: 'National fitness → has → not only improved (the physical fitness of the people) → but also promoted (the harmonious development of society)',
+          whyGood: '① not only...but also 递进结构 ② physical fitness 准确对应“身体素质” ③ harmonious development 标准表达。',
           keyVocab: ['', ''],
-          substitutionGuide: '不会 physical health → physical fitness / bodily health / physique；不会 harmonious development → balanced development / coordinated progress',
+          substitutionGuide: '不会 physical fitness → physical health / bodily health / physique；不会 harmonious development → balanced development / coordinated progress',
           sentencePattern: '\'A不仅改善了B，还促进了C\' → \'A has not only improved B but also promoted C\'',
-          highScore: { en: '', note: 'not only...but also + physical health + harmonious development 表达有力' },
-          lowScore: { en: '', note: 'made...body healthier 不如 improved physical health + helped...develop 不如 promoted harmonious development。评分 9-11 分档。' }
+          highScore: { en: 'National fitness has not only improved the physical fitness of the people but also promoted the harmonious development of society.', note: 'not only...but also + physical fitness + harmonious development 表达有力' },
+          lowScore: { en: 'National fitness has not only made people physically healthier but also helped society develop in a harmonious way.', note: 'made...healthier 不如 improved physical fitness，helped...develop 不如 promoted；结构正确。评分 10-12 分档。' }
         }
       }
     ]
@@ -308,6 +312,7 @@ export const passagesPart2 = [
   // p14. 人类命运共同体 (2023.6)
   {
     id: 'p14',
+    level: 'CET-6',
     title: '人类命运共同体',
     year: '2023.6',
     topic: '社会民生',
@@ -403,6 +408,7 @@ export const passagesPart2 = [
   // p15. 生态文明建设 (2023.6)
   {
     id: 'p15',
+    level: 'CET-6',
     title: '生态文明建设',
     year: '2023.6',
     topic: '生态环境',
@@ -497,6 +503,7 @@ export const passagesPart2 = [
   // p16. 中国载人航天 (2023.6)
   {
     id: 'p16',
+    level: 'CET-4',
     title: '中国载人航天',
     year: '2023.6',
     topic: '科技成就',
@@ -521,8 +528,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 manned space program → human spaceflight program / crewed space mission；不会 remarkable → outstanding / impressive / striking；不会 worldwide attention → global recognition / international acclaim',
           sentencePattern: '\'A取得了举世瞩目的成就\' → \'A has achieved remarkable accomplishments that have attracted worldwide attention\'',
-          highScore: { en: '', note: 'manned space program + remarkable + that 定语从句表达精准' },
-          lowScore: { en: '', note: 'human spaceflight 不如 manned space + gotten 不如 achieved + notices 不如 attracted attention。评分 9-11 分档。' }
+          highScore: { en: 'China\'s manned space program has achieved remarkable accomplishments that have attracted worldwide attention.', note: 'manned space program + remarkable + that 定语从句表达精准' },
+          lowScore: { en: 'China\'s human spaceflight program has made great achievements, and the whole world has noticed them.', note: 'human spaceflight / made great achievements 可用但不如原译专业；拆句后信息完整。评分 9-11 分档。' }
         }
       },
       {
@@ -542,8 +549,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 Since sending → Since it sent / From the time when it sent；不会 multiple → many / several / numerous；不会 missions → flights / operations',
           sentencePattern: '\'自Y年首次将A送入B以来，C已成功完成多次D\' → \'Since sending its first A into B in Y, C has successfully completed multiple D\'',
-          highScore: { en: '', note: 'Since sending + has completed + multiple missions 准确' },
-          lowScore: { en: '', note: 'After it first sent 不如 Since sending + done 不如 completed + trips 不如 missions。评分 9-11 分档。' }
+          highScore: { en: 'Since sending its first astronaut into space in 2003, China has successfully completed multiple manned space missions.', note: 'Since sending + has completed + multiple missions 准确' },
+          lowScore: { en: 'After it first sent an astronaut into space in 2003, China has successfully finished many manned space flights.', note: 'After 从句不如 Since 分词，finished / flights 不如 completed / missions；信息完整。评分 10-12 分档。' }
         }
       },
       {
@@ -563,8 +570,8 @@ export const passagesPart2 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 permanent → lasting / constant / perpetual；不会 independently built → self-built / built on its own / domestically constructed；不会 marking → signaling / indicating / representing',
           sentencePattern: '\'A是B自主建造的C，标志着D进入了新的发展阶段\' → \'A is a C independently built by B, marking a new stage in the development of D\'',
-          highScore: { en: '', note: 'permanent + independently built + marking 层层嵌套' },
-          lowScore: { en: '', note: 'long-term 不如 permanent + built by itself 不如 independently built + shows 不如 marks + 拆成两句。评分 8-10 分档。' }
+          highScore: { en: 'The Tiangong Space Station is a permanent space station independently built by China, marking a new stage in the development of China\'s manned space program.', note: 'permanent + independently built + marking 层层嵌套' },
+          lowScore: { en: 'Tiangong is a permanent space station that China built by itself. It shows Chinese manned spaceflight has entered a new stage.', note: 'built by itself 不如 independently built，shows 不如 marks，拆成两句；意思准确。评分 9-11 分档。' }
         }
       },
       {
@@ -584,8 +591,8 @@ export const passagesPart2 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 conduct → carry out / perform / do；不会 aboard → on board / inside / in；不会 humanity → humankind / the human race / people',
           sentencePattern: '\'A在B内开展各种C，为D做出了重要贡献\' → \'A conduct various C aboard B, making important contributions to D\'',
-          highScore: { en: '', note: 'conduct + aboard + humanity\'s exploration 表达精准' },
-          lowScore: { en: '', note: 'do 不如 conduct + in 不如 aboard + humans\' 不如 humanity\'s + science 不如 scientific。评分 8-10 分档。' }
+          highScore: { en: 'Astronauts conduct various scientific experiments aboard the space station, making important contributions to humanity\'s exploration of the universe.', note: 'conduct + aboard + humanity\'s exploration 表达精准' },
+          lowScore: { en: 'Astronauts do many science experiments in the space station. They have made important contributions to humans\' exploration of the universe.', note: 'do / in 不如 conduct / aboard，拆成两句；信息完整。评分 9-11 分档。' }
         }
       },
       {
@@ -605,8 +612,8 @@ export const passagesPart2 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 reflects → shows / demonstrates / displays；不会 courageous → brave / bold / daring；不会 continuous innovation → constant innovation / relentless innovation / ongoing innovation',
           sentencePattern: '\'A的发展展现了B勇于C、不断D的精神\' → \'The development of A reflects B\'s spirit of C and D\'',
-          highScore: { en: '', note: 'reflects + courageous exploration + continuous innovation 表达有力' },
-          lowScore: { en: '', note: 'growth 不如 development + shows 不如 reflects + bravely exploring 不如 courageous exploration + making new things 不如 innovation。评分 8-10 分档。' }
+          highScore: { en: 'The development of China\'s manned space program reflects the Chinese people\'s spirit of courageous exploration and continuous innovation.', note: 'reflects + courageous exploration + continuous innovation 表达有力' },
+          lowScore: { en: 'China\'s manned space program shows that Chinese people are brave to explore and keep making new things.', note: 'shows 不如 reflects，brave to explore / making new things 较口语；意思基本完整。评分 9-11 分档。' }
         }
       }
     ]
@@ -614,6 +621,7 @@ export const passagesPart2 = [
   // p17. 中国梦 (2022.12)
   {
     id: 'p17',
+    level: 'CET-6',
     title: '中国梦',
     year: '2022.12',
     topic: '社会民生',
@@ -725,6 +733,7 @@ export const passagesPart2 = [
   // p18. 丝绸之路 (2022.12)
   {
     id: 'p18',
+    level: 'CET-4',
     title: '丝绸之路',
     year: '2022.12',
     topic: '历史遗迹',
@@ -818,12 +827,13 @@ export const passagesPart2 = [
   // p19. 中国文学 (2022.6)
   {
     id: 'p19',
+    level: 'CET-4',
     title: '中国文学',
     year: '2022.6',
     topic: '中国文化',
     difficulty: 3,
     fullCN: '中国文学源远流长，从《诗经》到唐诗宋词，从元曲到明清小说，每个时代都有其代表性的文学成就。四大名著——《红楼梦》《西游记》《水浒传》《三国演义》——代表了中国古典小说的最高水准，被翻译成多种语言，在世界范围内拥有大量读者。当代中国文学也展现出了蓬勃的生命力，多位中国作家获得国际文学奖项，莫言更是于2012年荣获诺贝尔文学奖。',
-    fullEN: 'Chinese literature has a long and rich history. From The Book of Songs to Tang poetry and Song lyrics, from Yuan drama to Ming and Qing novels, every era has its representative literary achievements. The four great classic novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide. Contemporary Chinese literature also displays vigorous vitality, with many Chinese writers winning international literary awards, and Mo Yan being awarded the Nobel Prize in Literature in 2012.',
+    fullEN: 'Chinese literature has a long and rich history. From The Book of Songs to Tang poetry and Song lyrics, from Yuan drama to Ming and Qing novels, every era has its representative literary achievements. The Four Great Classical Novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide. Contemporary Chinese literature also displays vigorous vitality, with many Chinese writers winning international literary awards, and Mo Yan being awarded the Nobel Prize in Literature in 2012.',
     sentences: [
       {
         id: 'p19s1',
@@ -849,9 +859,9 @@ export const passagesPart2 = [
       {
         id: 'p19s2',
         cn: '四大名著——《红楼梦》《西游记》《水浒传》《三国演义》——代表了中国古典小说的最高水准，被翻译成多种语言，在世界范围内拥有大量读者。',
-        en: 'The four great classic novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide.',
+        en: 'The Four Great Classical Novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide.',
         annotations: [
-          { fragment: 'the four great classic novels', type: 'term', label: '文化术语', detail: '"四大名著"译法，classic novels 强调经典性，不用 famous books' },
+          { fragment: 'The Four Great Classical Novels', type: 'term', label: '文化术语', detail: '"四大名著"的通行译法，作为专有名词首字母大写；不用 famous books' },
           { fragment: 'represent the highest level of classical Chinese fiction', type: 'phrase', label: '评价用语', detail: 'fiction 指小说类文学，比 novels 更具概括性，避免重复' },
           { fragment: 'attracting a vast readership worldwide', type: 'grammar', label: '分词状语', detail: '现在分词短语表伴随结果，替代 and attract，句式更紧凑' }
         ],
@@ -860,10 +870,10 @@ export const passagesPart2 = [
           structure: '主语(含插入语列举) + 谓语 + and并列 + 分词状语',
           structureAnalysis: 'The four novels — A, B, C, D — represent...and have been translated...，attracting... 分词收尾',
           whyGood: '破折号插入列举四部作品名（英文书名用斜体/首字母大写），并列谓语 represent + have been translated，attracting 分词收束。',
-          keyVocab: ['four great classic novels', 'classical Chinese fiction', 'vast readership', 'worldwide'],
+          keyVocab: ['Four Great Classical Novels', 'classical Chinese fiction', 'vast readership', 'worldwide'],
           substitutionGuide: '"最高水准"还可译 the highest standard / the pinnacle；"拥有读者"可译 enjoys a large following',
           sentencePattern: 'The N — A, B, C, and D — represent/are the highest Y, having been done..., doing Z.',
-          highScore: { en: 'The four great classic novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide.', note: '破折号插入列举+并列谓语+分词状语，多信息层次分明' },
+          highScore: { en: 'The Four Great Classical Novels — Dream of the Red Chamber, Journey to the West, Water Margin, and Romance of the Three Kingdoms — represent the highest level of classical Chinese fiction and have been translated into many languages, attracting a vast readership worldwide.', note: '破折号插入列举+并列谓语+分词状语，多信息层次分明' },
           lowScore: { en: 'Four famous books are Dream of the Red Chamber, Journey to the West, Water Margin and Three Kingdoms. They are the best Chinese old novels and have been translated into many languages and have many readers in the world.', note: 'famous books 不准确，best Chinese old novels 语序混乱，用 and 简单堆砌缺乏层次' }
         }
       },
@@ -893,6 +903,7 @@ export const passagesPart2 = [
   // p20. 中国成语文化 (2022.6)
   {
     id: 'p20',
+    level: 'CET-4',
     title: '中国成语文化',
     year: '2022.6',
     topic: '中国文化',

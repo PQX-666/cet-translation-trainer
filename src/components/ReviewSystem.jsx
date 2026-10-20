@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
-import { patterns, topicPhrases, topicVocab } from '../data'
-import { getDailyReviewItems, ratePattern, ratePhrase, rateVocab, getStageName, loadData } from '../utils/storage'
+import { patterns, topicPhrases, topicVocab, passages } from '../data'
+import { getDailyReviewItems, ratePattern, ratePhrase, rateVocab, rateSentence, getStageName, loadData, saveData } from '../utils/storage'
 import { Undo2, Zap, BookOpen } from 'lucide-react'
 
 const ratingOptions = [
@@ -18,7 +18,17 @@ function getAllVocabItems() {
   return items
 }
 
-function getFallbackItems() {
+function getAllSentenceItems() {
+  const items = []
+  passages.forEach(p => {
+    (p.sentences || []).forEach((s, idx) => {
+      items.push({ ...s, passageId: p.id, passageTitle: p.title, sentenceIndex: idx, year: p.year, level: p.level })
+    })
+  })
+  return items
+}
+
+function getFallbackItems(sentenceItems = []) {
   const data = loadData()
   const now = Date.now()
   const vocabItems = getAllVocabItems()
@@ -53,7 +63,17 @@ function getFallbackItems() {
     })
     .filter(Boolean)
 
-  return [...patternItems, ...phraseItems, ...vocabList].sort((a, b) => (a.progress.stage || 0) - (b.progress.stage || 0))
+  const sentenceList = Object.entries(data.sentenceProgress || {})
+    .filter(([_, p]) => p.stage > 0 && p.stage < 6)
+    .sort((a, b) => (a[1].nextReview || now) - (b[1].nextReview || now))
+    .slice(0, 6)
+    .map(([id, p]) => {
+      const sentence = sentenceItems.find(s => s.id === id)
+      return sentence ? { ...sentence, progress: p, itemType: 'sentence' } : null
+    })
+    .filter(Boolean)
+
+  return [...patternItems, ...phraseItems, ...vocabList, ...sentenceList].sort((a, b) => (a.progress.stage || 0) - (b.progress.stage || 0))
 }
 
 export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
@@ -61,12 +81,48 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
   const [showAnswer, setShowAnswer] = useState(false)
   const [finished, setFinished] = useState(false)
   const [lastAction, setLastAction] = useState(null)
+  const [autoMode, setAutoMode] = useState(false)
+  const [recallInput, setRecallInput] = useState('')
+  const [reviewedKeys, setReviewedKeys] = useState(() => new Set())
+  const autoTimer = useRef(null)
   const undoTimeout = useRef(null)
 
   const allVocabItems = useMemo(() => getAllVocabItems(), [])
-  const dueItems = useMemo(() => getDailyReviewItems(patterns, topicPhrases, allVocabItems), [appData, allVocabItems])
-  const fallbackItems = useMemo(() => dueItems.length === 0 ? getFallbackItems() : [], [appData, dueItems.length, allVocabItems])
-  const reviewItems = dueItems.length > 0 ? dueItems : fallbackItems
+  const allSentenceItems = useMemo(() => getAllSentenceItems(), [])
+  const dueItems = useMemo(
+    () => getDailyReviewItems(patterns, topicPhrases, allVocabItems, allSentenceItems),
+    [appData, allVocabItems, allSentenceItems]
+  )
+  const fallbackItems = useMemo(
+    () => dueItems.length === 0 ? getFallbackItems(allSentenceItems) : [],
+    [appData, dueItems.length, allSentenceItems]
+  )
+  const itemKey = item => `${item.itemType}:${item.id}`
+  // 评分后该条目的 nextReview 会变成未来时间，dueItems 立即缩短；
+  // 若此时再 currentIdx+1，就会跳过下一条。这里按“本次会话已评”过滤。
+  const reviewItems = (dueItems.length > 0 ? dueItems : fallbackItems)
+    .filter(item => !reviewedKeys.has(itemKey(item)))
+
+  // Find next batch of items becoming due
+  const nextDueInfo = useMemo(() => {
+    const now = Date.now()
+    let closest = Infinity
+    let count = 0
+    const allProgress = [
+      ...Object.values(appData.patternProgress || {}),
+      ...Object.values(appData.phraseProgress || {}),
+      ...Object.values(appData.vocabProgress || {}),
+    ]
+    allProgress.forEach(p => {
+      if (p.nextReview && p.nextReview > now && p.stage < 8) {
+        if (p.nextReview < closest) closest = p.nextReview
+        if (p.nextReview - now < 3600000) count++ // within 1 hour
+      }
+    })
+    if (closest === Infinity) return null
+    const minutes = Math.round((closest - now) / 60000)
+    return { minutes, count }
+  }, [appData])
 
   const isDue = dueItems.length > 0
   const totalLearned =
@@ -77,36 +133,51 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
   const handleRate = (quality) => {
     if (!reviewItems[currentIdx]) return
     const item = reviewItems[currentIdx]
-    const undoInfo = { item, idx: currentIdx, quality }
+    const key = itemKey(item)
+    // 评分前的完整快照，用于真正撤销（而不是再评一次）
+    const undoInfo = { item, key, idx: currentIdx, snapshot: loadData() }
+
     if (item.itemType === 'pattern') {
       ratePattern(item.id, quality, null)
     } else if (item.itemType === 'phrase') {
       ratePhrase(item.id, quality, null)
     } else if (item.itemType === 'vocab') {
       rateVocab(item.id, quality)
+    } else if (item.itemType === 'sentence') {
+      const attempt = recallInput.trim()
+      rateSentence(item.id, quality, {
+        passageId: item.passageId,
+        sentenceIndex: item.sentenceIndex,
+        firstTranslation: attempt,
+        revision: '',
+        skipped: !attempt,
+        countsForSrs: Boolean(attempt),
+      })
     }
+
+    const nextReviewed = new Set(reviewedKeys)
+    nextReviewed.add(key)
+    setReviewedKeys(nextReviewed)
     setShowAnswer(false)
+    setRecallInput('')
     setLastAction(undoInfo)
     clearTimeout(undoTimeout.current)
     undoTimeout.current = setTimeout(() => setLastAction(null), 5000)
-    if (currentIdx < reviewItems.length - 1) {
-      setCurrentIdx(prev => prev + 1)
-    } else {
-      setFinished(true)
-    }
+
+    const remaining = reviewItems.filter(it => !nextReviewed.has(itemKey(it)))
+    if (remaining.length === 0) setFinished(true)
     onDataChange()
   }
 
   const handleUndo = () => {
     if (!lastAction) return
-    const { item, idx, quality } = lastAction
-    if (item.itemType === 'pattern') {
-      ratePattern(item.id, 2, null)
-    } else if (item.itemType === 'phrase') {
-      ratePhrase(item.id, 2, null)
-    } else if (item.itemType === 'vocab') {
-      rateVocab(item.id, 2)
-    }
+    const { key, idx, snapshot } = lastAction
+    saveData(snapshot)
+    setReviewedKeys(prev => {
+      const next = new Set(prev)
+      next.delete(key)
+      return next
+    })
     setCurrentIdx(idx)
     setShowAnswer(false)
     setFinished(false)
@@ -131,6 +202,15 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
   }, [finished, reviewItems, showAnswer, handleRate])
+
+  // Auto-mode: show answer after 4 seconds
+  useEffect(() => {
+    if (!autoMode || showAnswer || finished) return
+    autoTimer.current = setTimeout(() => {
+      setShowAnswer(true)
+    }, 4000)
+    return () => clearTimeout(autoTimer.current)
+  }, [autoMode, showAnswer, finished, currentIdx])
 
   if (finished || reviewItems.length === 0) {
     return (
@@ -163,6 +243,19 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
                 ? '继续保持，系统会在合适的时间安排下一轮复习。'
                 : '所有已学项目都在按计划复习中。'}
             </p>
+            {nextDueInfo && (
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 mb-4">
+                <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+                  {nextDueInfo.minutes <= 0 ? '即将有项目到期'
+                    : nextDueInfo.minutes < 60 ? `${nextDueInfo.minutes} 分钟后`
+                    : nextDueInfo.minutes < 1440 ? `约 ${Math.round(nextDueInfo.minutes / 60)} 小时后`
+                    : `约 ${Math.round(nextDueInfo.minutes / 1440)} 天后`}
+                </span>
+                <span className="text-xs text-blue-500 dark:text-blue-400">
+                  有 {nextDueInfo.count} 个项目
+                </span>
+              </div>
+            )}
             <div className="flex items-center justify-center gap-3 mb-4">
               <button onClick={() => onNavigate('memory')} className="btn-secondary text-sm flex items-center gap-1.5">
                 <Zap size={14} /> 学习新内容
@@ -191,12 +284,17 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
 
   const item = reviewItems[currentIdx]
   const progress = item.progress || {}
-  const typeLabel = item.itemType === 'pattern' ? '句型' : item.itemType === 'phrase' ? '短语' : '词汇'
+  const typeLabel = item.itemType === 'pattern' ? '句型'
+    : item.itemType === 'phrase' ? '短语'
+    : item.itemType === 'sentence' ? '整句'
+    : '词汇'
   const typeTagColor = item.itemType === 'pattern'
     ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400'
     : item.itemType === 'phrase'
       ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400'
-      : 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400'
+      : item.itemType === 'sentence'
+        ? 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400'
+        : 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400'
 
   return (
     <div className="space-y-6">
@@ -211,6 +309,17 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
           {!isDue && (
             <span className="tag bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">自主模式</span>
           )}
+          <button
+            onClick={() => { setAutoMode(a => !a); setShowAnswer(false) }}
+            className={`text-xs px-2.5 py-1 rounded-lg font-medium transition-all ${
+              autoMode
+                ? 'bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400'
+                : 'bg-cream-200 dark:bg-ink-700 text-ink-400 dark:text-ink-500 hover:bg-cream-300 dark:hover:bg-ink-600'
+            }`}
+            title="自动模式：4秒后自动显示答案"
+          >
+            {autoMode ? '自动中' : '自动'}
+          </button>
           <span className="text-sm text-ink-500 dark:text-ink-400">
             {currentIdx + 1} / {reviewItems.length}
           </span>
@@ -265,6 +374,22 @@ export default function ReviewSystem({ appData, onDataChange, onNavigate }) {
           <p className="text-sm text-ink-400 dark:text-ink-500 mb-1">回忆以下内容</p>
           <p className="text-base font-medium text-ink-800 dark:text-cream-100 leading-relaxed">{item.cn}</p>
         </div>
+
+        {item.itemType === 'sentence' && !showAnswer && (
+          <textarea
+            className="w-full min-h-[70px] p-3 mb-4 rounded-lg border border-cream-300 dark:border-ink-600 bg-cream-50 dark:bg-ink-900 text-ink-800 dark:text-cream-100 placeholder-ink-300 dark:placeholder-ink-500 focus:outline-none focus:border-amber-400 dark:focus:border-amber-500 text-sm leading-relaxed font-serif resize-y"
+            placeholder="先默写英文再对照答案；留空也能看答案，但不会推进记忆进度"
+            value={recallInput}
+            onChange={e => setRecallInput(e.target.value)}
+          />
+        )}
+
+        {item.itemType === 'sentence' && showAnswer && recallInput.trim() && (
+          <div className="mb-4 rounded-xl p-3 border border-cream-200 dark:border-ink-700 bg-white/60 dark:bg-ink-800/60">
+            <div className="text-xs text-ink-400 dark:text-ink-500 mb-1">你的译文</div>
+            <p className="text-sm font-serif text-ink-700 dark:text-cream-200 leading-relaxed">{recallInput}</p>
+          </div>
+        )}
 
         {showAnswer && (
           <div className="rounded-xl p-4 bg-green-50 dark:bg-green-500/5 border border-green-200 dark:border-green-500/20 mb-4">

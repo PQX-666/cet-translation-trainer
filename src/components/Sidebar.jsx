@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Home, BookOpen, Zap, RotateCw, AlertCircle, Moon, Sun, Search, Download, Upload, Trash2, X } from 'lucide-react'
+import { Home, BookOpen, Zap, RotateCw, AlertCircle, Moon, Sun, Search, Download, Upload, Trash2, X, Library, Map, Timer } from 'lucide-react'
 import { resetAllData } from '../utils/storage'
 
 const iconMap = {
@@ -8,6 +8,9 @@ const iconMap = {
   memory: Zap,
   review: RotateCw,
   errors: AlertCircle,
+  knowledge: Library,
+  walkthrough: Map,
+  exam: Timer,
 }
 
 export default function Sidebar({ pages, current, onNavigate, appData, darkMode, onToggleDark, onExport, onImport, onSearch, onDataChange, showToast }) {
@@ -24,7 +27,8 @@ export default function Sidebar({ pages, current, onNavigate, appData, darkMode,
   const dueReviewCount =
     Object.values(appData.patternProgress || {}).filter(p => p.nextReview && p.nextReview <= now && p.stage < 8).length +
     Object.values(appData.phraseProgress || {}).filter(p => p.nextReview && p.nextReview <= now && p.stage < 8).length +
-    Object.values(appData.vocabProgress || {}).filter(p => p.nextReview && p.nextReview <= now && p.stage < 8).length
+    Object.values(appData.vocabProgress || {}).filter(p => p.nextReview && p.nextReview <= now && p.stage < 8).length +
+    Object.values(appData.sentenceProgress || {}).filter(p => p.nextReview && p.nextReview <= now && p.stage < 8).length
 
   const errorCount = (appData.errorBook || []).filter(e => !e.reviewed).length
 
@@ -129,6 +133,9 @@ export default function Sidebar({ pages, current, onNavigate, appData, darkMode,
         </div>
         <div className="text-[11px] text-ink-400 dark:text-ink-500">
           共练习 <strong className="text-ink-600 dark:text-cream-300">{totalSentences}</strong> 句
+        </div>
+        <div className="text-[10px] text-ink-300 dark:text-ink-600 pt-1">
+          © {new Date().getFullYear()} 辰轩 · 版权所有
         </div>
       </div>
 

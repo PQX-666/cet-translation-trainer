@@ -1,6 +1,6 @@
 export const patterns = [
   { id: 'p1', name: 'It is...that...', structure: 'It is conceivable that...', cn: '可想而知，知识在我们的生活中扮演重要角色。', en: 'It is conceivable that knowledge plays an important part in our life.', topic: '通用句式', difficulty: 1 },
-  { id: 'p2', name: 'It is...to do', structure: 'It is + adj. + to do', cn: '她说了必须要说的话。', en: 'She had said what it was necessary to say.', topic: '通用句式', difficulty: 1 },
+  { id: 'p2', name: 'It is...to do', structure: 'It is + adj. + to do', cn: '保护环境很重要。', en: 'It is important to protect the environment.', topic: '通用句式', difficulty: 1 },
   { id: 'p3', name: '...and/or...', structure: '祈使句 + and/or + 陈述句', cn: '努力工作，你最终就能实现目标。', en: 'Work hard, and you will finally be able to reach your goal.', topic: '通用句式', difficulty: 1 },
   { id: 'p4', name: 'as many/much as', structure: '...as many/much as...', cn: '据说游客在利兹一天的花费仅为在伦敦的一半。', en: 'It is said that visitors spend only half as much money in a day in Leeds as in London.', topic: '比较句式', difficulty: 2 },
   { id: 'p5', name: '倍数 as...as', structure: '...times as...as...', cn: '这个游泳池是十年前的三倍大。', en: 'The pool is three times as big as it was ten years ago.', topic: '比较句式', difficulty: 2 },
@@ -21,13 +21,13 @@ export const patterns = [
   { id: 'p20', name: 'It occurred to sb. that', structure: 'It occurred to sb. that...', cn: '灰姑娘从未想过自己有朝一日会成为公主。', en: 'It had never occurred to Cinderella she would become a princess someday.', topic: '通用句式', difficulty: 2 },
   { id: 'p21', name: 'not...but...', structure: 'not...but...', cn: '令我们失望的是，这个计划带来的不是发展而是破坏。', en: 'To our disappointment, the plan caused not development but destruction.', topic: '通用句式', difficulty: 1 },
   { id: 'p22', name: 'take for granted', structure: 'It is taken for granted that...', cn: '人们理所当然地认为女性应该承担所有家务。', en: 'It has been taken for granted that women should take on all the housework.', topic: '通用句式', difficulty: 2 },
-  { id: 'p23', name: 'It is said that', structure: 'It is said that...', cn: '据说人类是所有物种中最不受生物本能决定的。', en: 'It is said that man is the least biologically determined species of all because he possesses feature absent in other natural species.', topic: '通用句式', difficulty: 1 },
+  { id: 'p23', name: 'It is said that', structure: 'It is said that...', cn: '据说人类是所有物种中最不受生物本能决定的。', en: 'It is said that man is the least biologically determined species of all because he possesses features absent in other natural species.', topic: '通用句式', difficulty: 1 },
   { id: 'p24', name: 'When it comes to', structure: 'When it comes to..., ...', cn: '说到摄影，我可不是行家。', en: "When it comes to photography, I'm not an adept.", topic: '通用句式', difficulty: 1 },
   { id: 'p25', name: 'be not much of a', structure: 'be not much of a + n.', cn: 'Mike算不上好老师，因为他讲课经常跑题。', en: 'Mike is not much of a teacher for he often skips from one subject to another.', topic: '通用句式', difficulty: 2 },
   { id: 'p26', name: 'As far as...concerned', structure: 'As far as sb./sth. is concerned,...', cn: '就我而言，时尚属于女人。', en: 'As far as I am concerned, fashion belongs to women.', topic: '通用句式', difficulty: 1 },
   { id: 'p27', name: 'not only...but also', structure: 'not only...but also...', cn: '在生产中，我们不仅要求数量，更要求质量。', en: 'In production, we demand not only quantity but also quality.', topic: '并列句式', difficulty: 1 },
   { id: 'p28', name: 'either...or...', structure: 'either...or... / neither...nor...', cn: '大多数单亲父母要么离异，要么分居。', en: 'Most single parents are either divorced or separated.', topic: '并列句式', difficulty: 1 },
-  { id: 'p29', name: 'no sooner...than', structure: 'hardly...when / scarcely...when', cn: '我还没来得及开门，他就冲了进来。', en: 'I had hardly opened the door when he rushed in.', topic: '时间句式', difficulty: 3 },
+  { id: 'p29', name: 'hardly...when', structure: 'hardly/scarcely...when / no sooner...than', cn: '我还没来得及开门，他就冲了进来。', en: 'I had hardly opened the door when he rushed in.', topic: '时间句式', difficulty: 3 },
   { id: 'p30', name: 'the more...the more', structure: 'the more..., the more...', cn: '她越学越想学。', en: 'The more she learns, the more she wants to learn.', topic: '比较句式', difficulty: 1 },
 ];
 
@@ -71,7 +71,7 @@ export const topicPhrases = [
   { id: 'tp37', cn: '方便快捷', en: 'convenient and efficient', topic: '科技成就' },
   { id: 'tp38', cn: '在人类生活的方方面面', en: 'in all aspects of human life', topic: '通用句式' },
   { id: 'tp39', cn: '环保材料', en: 'environmentally friendly materials', topic: '生态环境' },
-  { id: 'tp40', cn: '社会进步的体现', en: 'a symbol of society progress', topic: '社会民生' },
+  { id: 'tp40', cn: '社会进步的体现', en: 'a symbol of social progress', topic: '社会民生' },
   { id: 'tp41', cn: '大大方便了人们的生活', en: 'Sth has greatly facilitated people\'s lives.', topic: '社会民生' },
   { id: 'tp42', cn: '在一定程度上', en: 'to some extent', topic: '通用句式' },
   { id: 'tp43', cn: '理论和实践相结合', en: 'integrate theory with practice', topic: '教育语言' },
@@ -82,7 +82,7 @@ export const topicPhrases = [
   { id: 'tp48', cn: '有其自身的优缺点', en: 'has its own merits and demerits / pros and cons', topic: '通用句式' },
   { id: 'tp49', cn: '对…有害', en: 'do harm to / be harmful to / be detrimental to', topic: '通用句式' },
   { id: 'tp50', cn: '交流思想/情感/信息', en: 'exchange ideas / emotions / information', topic: '通用句式' },
-  { id: 'tp51', cn: '跟上…的最新发展', en: 'keep pace with / keep abreast with the latest development of...', topic: '通用句式' },
+  { id: 'tp51', cn: '跟上…的最新发展', en: 'keep pace with / keep abreast of the latest development of...', topic: '通用句式' },
   { id: 'tp52', cn: '…的健康发展', en: 'the healthy development of...', topic: '社会民生' },
   { id: 'tp53', cn: '重视', en: 'attach great importance to...', topic: '通用句式' },
   { id: 'tp54', cn: '社会地位', en: 'social status', topic: '社会民生' },
@@ -309,7 +309,7 @@ export const topicVocab = {
     { cn: '温室效应', en: 'greenhouse effect' },
     { cn: '温室气体', en: 'greenhouse gas' },
     { cn: '二氧化碳', en: 'carbon dioxide' },
-    { cn: '可再生能源', en: 'renewable resources' },
+    { cn: '可再生能源', en: 'renewable energy' },
     { cn: '新能源车', en: 'new energy vehicle / green car' },
     { cn: '尾气排放', en: 'exhaust gas emission' },
     { cn: '零排放车', en: 'zero-emission vehicle' },
@@ -320,13 +320,13 @@ export const topicVocab = {
     { cn: '退耕还林', en: 'return farmland to forest' },
     { cn: '污染物', en: 'pollutant' },
     { cn: '一次性产品', en: 'disposable product' },
-    { cn: '环保意识', en: 'raise environmental awareness' },
+    { cn: '环保意识', en: 'environmental awareness' },
     { cn: '冰川融化', en: 'glacier melting' },
     { cn: '绿化', en: 'afforestation / greening' },
     { cn: '低碳生活', en: 'low-carbon lifestyle' },
   ],
 };
 
-export { passages, getPatternCrossReferences } from './passages';
+export { passages, getPatternCrossReferences } from './passages.js';
 
-export const allTopics = ['中国文化', '历史遗迹', '地理概况', '经济发展', '科技成就', '社会民生', '教育语言', '生态环境'];
+export const allTopics = ['中国文化', '历史遗迹', '地理概况', '经济发展', '科技成就', '社会民生', '社会生活', '教育语言', '生态环境'];

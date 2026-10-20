@@ -4,9 +4,10 @@ export const passagesPart3 = [
   // p21. 延安 (2021.12)
   {
     id: 'p21',
+    level: 'CET-4',
     title: '延安',
     year: '2021.12',
-    topic: '革命历史',
+    topic: '历史遗迹',
     difficulty: 3,
     fullCN: '延安位于陕西省北部，地处黄河中游，是中国革命的圣地。毛泽东等老一辈革命家曾在这里生活战斗了十三个春秋，领导了抗日战争和解放战争，培育了延安精神，为中国革命做出了巨大贡献。延安的革命旧址全国数量最大、分布最广、级别最高。延安是全国爱国主义、革命传统和延安精神教育基地。延安有9个革命纪念馆，珍藏着中共中央和老一辈革命家在延安时期留存下来的大量重要物品，因此享有"中国革命博物馆城"的美誉。',
     fullEN: 'Yan\'an, located in the northern part of Shaanxi Province on the middle reaches of the Yellow River, is the sacred site of the Chinese revolution. Mao Zedong and other veteran revolutionaries lived and fought here for thirteen years, leading the War of Resistance against Japanese Aggression and the Liberation War, cultivating the Yan\'an Spirit, and making great contributions to the Chinese revolution. Yan\'an has the largest number, widest distribution, and highest level of revolutionary sites in the country. Yan\'an is a national education base for patriotism, revolutionary traditions, and the Yan\'an Spirit. Yan\'an has nine revolutionary memorial halls that house a large number of important items left by the CPC Central Committee and veteran revolutionaries during the Yan\'an period, thus enjoying the reputation of being "the museum city of the Chinese revolution."',
@@ -28,7 +29,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 middle reaches → middle part / middle section；不会 sacred site → holy place / holy land / revolutionary holy land',
           sentencePattern: '\'XX位于A省北部，地处B中游，是C的圣地\' → XX, located in the northern part of A Province on the middle reaches of B, is the sacred site of C',
-          highScore: { en: '', note: 'located 分词 + on the middle reaches + sacred site' },
+          highScore: { en: 'Yan\'an, located in the northern part of Shaanxi Province on the middle reaches of the Yellow River, is the sacred site of the Chinese revolution.', note: 'located 分词 + on the middle reaches + sacred site' },
           lowScore: { en: '', note: '两句分离 + middle part 不如 middle reaches + holy place 可接受但 sacred 更政治准确。评分 8-10 分档。' }
         }
       },
@@ -49,7 +50,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 veteran → old-generation / senior / experienced；不会 抗日战争 → Anti-Japanese War / the war against Japan',
           sentencePattern: '\'A等老一辈革命家在这里生活战斗了B年，领导了C和D，培育了E，为F做出了巨大贡献\' → A and other veteran revolutionaries lived and fought here for B years, leading C and D, cultivating E, and making great contributions to F',
-          highScore: { en: '', note: 'veteran revolutionaries + 三个并列分词 + 历史事件标准英译' },
+          highScore: { en: 'Mao Zedong and other veteran revolutionaries lived and fought here for thirteen years, leading the War of Resistance against Japanese Aggression and the Liberation War, cultivating the Yan\'an Spirit, and making great contributions to the Chinese revolution.', note: 'veteran revolutionaries + 三个并列分词 + 历史事件标准英译' },
           lowScore: { en: '', note: 'old revolutionaries 不够尊重 + 三句分离 + created 不如 cultivated。评分 8-10 分档。' }
         }
       },
@@ -69,7 +70,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 distribution → spread / coverage；不会 sites → places / spots / historical places',
           sentencePattern: '\'XX的YY在全国数量最大、分布最广、级别最高\' → XX has the largest number, widest distribution, and highest level of YY in the country',
-          highScore: { en: '', note: '三个并列最高级 + revolutionary sites' },
+          highScore: { en: 'Yan\'an has the largest number, widest distribution, and highest level of revolutionary sites in the country.', note: '三个并列最高级 + revolutionary sites' },
           lowScore: { en: '', note: '两句分离 + most...places 不如 largest number + spread 不如 distribution。评分 8-10 分档。' }
         }
       },
@@ -89,7 +90,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 patriotism → love for one\'s country / national pride；不会 education base → educational center / learning base',
           sentencePattern: '\'XX是全国A、B和C的教育基地\' → XX is a national education base for A, B, and C',
-          highScore: { en: '', note: 'education base for + 三项并列' },
+          highScore: { en: 'Yan\'an is a national education base for patriotism, revolutionary traditions, and the Yan\'an Spirit.', note: 'education base for + 三项并列' },
           lowScore: { en: '', note: 'educational place 不规范 + loving the country 不如 patriotism + Yan\'an spirit 应大写。评分 8-10 分档。' }
         }
       },
@@ -110,7 +111,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 house → keep / store / collect；不会 reputation → fame / title / name；不会 veteran revolutionaries → old revolutionaries / senior leaders',
           sentencePattern: '\'XX有A个YY，珍藏着B时期留存下来的大量C，因此享有D的美誉\' → XX has A YY that house a large number of C left by...during the B period, thus enjoying the reputation of D',
-          highScore: { en: '', note: 'memorial halls + house + left by + thus enjoying' },
+          highScore: { en: 'Yan\'an has nine revolutionary memorial halls that house a large number of important items left by the CPC Central Committee and veteran revolutionaries during the Yan\'an period, thus enjoying the reputation of being "the museum city of the Chinese revolution."', note: 'memorial halls + house + left by + thus enjoying' },
           lowScore: { en: '', note: 'museums 不如 memorial halls + keep 不如 house + 三句分离不紧凑。评分 8-10 分档。' }
         }
       }
@@ -119,9 +120,10 @@ export const passagesPart3 = [
   // p22. 井冈山 (2021.12)
   {
     id: 'p22',
+    level: 'CET-4',
     title: '井冈山',
     year: '2021.12',
-    topic: '革命历史',
+    topic: '历史遗迹',
     difficulty: 3,
     fullCN: '井冈山地处湖南江西两省交界处，因其辉煌的革命历史被誉为"中国革命红色摇篮"。1927年10月，毛泽东、朱德等老一辈革命家率领中国工农红军来到这里，开展了艰苦卓绝的斗争，创建了第一个农村革命根据地，点燃了中国革命的星星之火，开辟了"农村包围城市，武装夺取政权"这一具有中国特色的革命道路，中国革命从这里迈向胜利。井冈山现有100多处革命旧址，成为一个"没有围墙的革命历史博物馆"，是爱国主义和革命传统教育的重要基地。',
     fullEN: 'Jinggangshan, located at the border between Hunan and Jiangxi provinces, is hailed as the "Red Cradle of the Chinese Revolution" for its glorious revolutionary history. In October 1927, veteran revolutionaries such as Mao Zedong and Zhu De led the Chinese Workers\' and Peasants\' Red Army here, waged arduous struggles, established the first rural revolutionary base, ignited the spark of the Chinese revolution, and blazed the revolutionary path of "besieging the cities from the countryside and seizing political power by armed force" with Chinese characteristics, from which the Chinese revolution marched toward victory. Jinggangshan now has over 100 revolutionary sites, making it a "revolutionary history museum without walls" and an important base for patriotism and revolutionary tradition education.',
@@ -143,7 +145,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 hailed as → praised as / known as / called；不会 cradle → birthplace / origin / source；不会 border → boundary / edge',
           sentencePattern: '\'XX地处A和B交界处，因其辉煌的C被誉为D\' → XX, located at the border between A and B, is hailed as D for its glorious C',
-          highScore: { en: '', note: 'located at the border + is hailed as + for + Red Cradle' },
+          highScore: { en: 'Jinggangshan, located at the border between Hunan and Jiangxi provinces, is hailed as the "Red Cradle of the Chinese Revolution" for its glorious revolutionary history.', note: 'located at the border + is hailed as + for + Red Cradle' },
           lowScore: { en: '', note: '两句分离 + people call it 不如 is hailed as + of 应为 at。评分 8-10 分档。' }
         }
       },
@@ -164,7 +166,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 waged → carried out / launched / fought；不会 arduous → hard / tough / extremely difficult；不会 besieging → surrounding / encircling',
           sentencePattern: '\'A年B月，C率领D来到这里，开展了E，创建了F，点燃了G，开辟了H，I从这里迈向胜利\' → In B A, C led D here, waged E, established F, ignited G, blazed H, from which I marched toward victory',
-          highScore: { en: '', note: '五个并列动词 + from which 从句 + 革命道路官方译法' },
+          highScore: { en: 'In October 1927, veteran revolutionaries such as Mao Zedong and Zhu De led the Chinese Workers\' and Peasants\' Red Army here, waged arduous struggles, established the first rural revolutionary base, ignited the spark of the Chinese revolution, and blazed the revolutionary path of "besieging the cities from the countryside and seizing political power by armed force" with Chinese characteristics, from which the Chinese revolution marched toward victory.', note: '五个并列动词 + from which 从句 + 革命道路官方译法' },
           lowScore: { en: '', note: '多句分离 + fought very hard 不如 waged arduous struggles + road 不如 path + 缺乏 from which 结构。评分 8-10 分档。' }
         }
       },
@@ -185,7 +187,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 making it → and this makes it / so it has become；不会 without walls → open-air / without boundaries / open',
           sentencePattern: '\'XX现有A多处YY，成为一个B，是C的重要基地\' → XX now has over A YY, making it a B and an important base for C',
-          highScore: { en: '', note: 'making it + museum without walls 保留比喻 + base for' },
+          highScore: { en: 'Jinggangshan now has over 100 revolutionary sites, making it a "revolutionary history museum without walls" and an important base for patriotism and revolutionary tradition education.', note: 'making it + museum without walls 保留比喻 + base for' },
           lowScore: { en: '', note: '三句分离 + old revolutionary places 不如 revolutionary sites + It is like 不如 making it 紧凑。评分 8-10 分档。' }
         }
       }
@@ -194,9 +196,10 @@ export const passagesPart3 = [
   // p23. 中共一大会址 (2021.12)
   {
     id: 'p23',
+    level: 'CET-4',
     title: '中共一大会址',
     year: '2021.12',
-    topic: '革命历史',
+    topic: '历史遗迹',
     difficulty: 3,
     fullCN: '中国共产党第一次全国代表大会会址位于上海兴业路76号，是一栋典型的上海式住宅，建于1920年秋。1921年7月23日，中国共产党第一次全国代表大会在此召开，大会通过了中国共产党的第一个纲领和第一个决议，选举产生了中央领导机构，宣告了中国共产党的诞生。1952年9月，中共一大会址修复，建立纪念馆并对外开放。纪念馆除了介绍参加一大的代表之外，还介绍党的历史发展进程，现已成为了解党史、缅怀革命先烈的爱国主义教育基地。',
     fullEN: 'The site of the First National Congress of the Communist Party of China is located at No. 76 Xingye Road, Shanghai. It is a typical Shanghai-style residence built in the autumn of 1920. On July 23, 1921, the First National Congress of the Communist Party of China was held here, where the Congress adopted the Party\'s first program and first resolution, elected the central leadership, and proclaimed the birth of the Communist Party of China. In September 1952, the site of the First National Congress was restored, and a memorial hall was established and opened to the public. In addition to introducing the delegates who attended the First Congress, the memorial hall also presents the historical development of the Party, and has now become a patriotic education base for learning about Party history and commemorating revolutionary martyrs.',
@@ -206,7 +209,7 @@ export const passagesPart3 = [
         cn: '中国共产党第一次全国代表大会会址位于上海兴业路76号，是一栋典型的上海式住宅，建于1920年秋。',
         en: 'The site of the First National Congress of the Communist Party of China is located at No. 76 Xingye Road, Shanghai. It is a typical Shanghai-style residence built in the autumn of 1920.',
         annotations: [
-          { fragment: 'The site of the First National Congress of the CPC', type: 'vocab', label: '中共一大会址', detail: 'First National Congress = 第一次全国代表大会。site = 会址/地点。CPC = Communist Party of China。' },
+          { fragment: 'The site of the First National Congress of the Communist Party of China', type: 'vocab', label: '中共一大会址', detail: 'First National Congress = 第一次全国代表大会。site = 会址/地点。CPC = Communist Party of China。' },
           { fragment: 'a typical Shanghai-style residence', type: 'phrase', label: '典型上海式住宅', detail: 'typical = 典型的。Shanghai-style = 上海风格的（-style 复合形容词）。residence = 住宅。' },
           { fragment: 'built in the autumn of 1920', type: 'structure', label: '过去分词后置定语', detail: 'built in = 建于（过去分词作定语修饰 residence）。autumn 前用 the。' }
         ],
@@ -218,7 +221,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 congress → meeting / conference；不会 residence → house / home / building',
           sentencePattern: '\'XX会址位于A地址，是一栋典型的B式住宅，建于C年\' → The site of XX is located at A. It is a typical B-style residence built in C',
-          highScore: { en: '', note: '专有名词精准 + Shanghai-style + built 分词' },
+          highScore: { en: 'The site of the First National Congress of the Communist Party of China is located at No. 76 Xingye Road, Shanghai. It is a typical Shanghai-style residence built in the autumn of 1920.', note: '专有名词精准 + Shanghai-style + built 分词' },
           lowScore: { en: '', note: 'place 不如 site + Meeting 不如 Congress + house 不如 residence。评分 8-11 分档。' }
         }
       },
@@ -239,7 +242,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 adopted → passed / approved / accepted；不会 proclaimed → announced / declared / stated；不会 program → plan / guideline',
           sentencePattern: '\'A年B月C日，XX在此召开，通过了第一个D和第一个E，选举产生了F，宣告了G的诞生\' → On B C, A, XX was held here, where XX adopted the first D and first E, elected F, and proclaimed the birth of G',
-          highScore: { en: '', note: 'where 从句 + adopted/elected/proclaimed 三个并列动词' },
+          highScore: { en: 'On July 23, 1921, the First National Congress of the Communist Party of China was held here, where the Congress adopted the Party\'s first program and first resolution, elected the central leadership, and proclaimed the birth of the Communist Party of China.', note: 'where 从句 + adopted/elected/proclaimed 三个并列动词' },
           lowScore: { en: '', note: '三句分离 + passed 不如 adopted + plan 应为 program + announced 不如 proclaimed。评分 8-10 分档。' }
         }
       },
@@ -260,7 +263,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 restored → repaired / fixed / rebuilt；不会 memorial hall → museum / memorial building / memorial place',
           sentencePattern: '\'A年B月，XX修复，建立YY并对外开放\' → In B A, XX was restored, and YY was established and opened to the public',
-          highScore: { en: '', note: 'was restored + memorial hall + was established + opened to the public' },
+          highScore: { en: 'In September 1952, the site of the First National Congress was restored, and a memorial hall was established and opened to the public.', note: 'was restored + memorial hall + was established + opened to the public' },
           lowScore: { en: '', note: 'repaired 不如 restored + museum 不如 memorial hall + opened to people 缺少 the public。评分 8-10 分档。' }
         }
       },
@@ -281,7 +284,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 In addition to → Besides / Apart from / Not only...but also；不会 commemorating → remembering / honoring / paying tribute to；不会 martyrs → heroes / revolutionary heroes',
           sentencePattern: '\'XX除了介绍A之外，还介绍B，现已成为了解C、缅怀D的E基地\' → In addition to introducing A, XX also presents B, and has now become an E base for learning about C and commemorating D',
-          highScore: { en: '', note: 'In addition to + presents + commemorating martyrs' },
+          highScore: { en: 'In addition to introducing the delegates who attended the First Congress, the memorial hall also presents the historical development of the Party, and has now become a patriotic education base for learning about Party history and commemorating revolutionary martyrs.', note: 'In addition to + presents + commemorating martyrs' },
           lowScore: { en: '', note: 'telling about 不够正式 + museum 不如 memorial hall + remembering 不如 commemorating + heroes 不如 martyrs。评分 8-10 分档。' }
         }
       }
@@ -290,6 +293,7 @@ export const passagesPart3 = [
   // p24. 海南省 (2021.12)
   {
     id: 'p24',
+    level: 'CET-6',
     title: '海南省',
     year: '2021.12',
     topic: '地理概况',
@@ -313,7 +317,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 southernmost → the most southern；不会 consist of → is made up of / is composed of',
           sentencePattern: '\'XX是中国最...的省份，由A和B组成\' → \'XX, China\'s ...most province, consists of A and B\'',
-          highScore: { en: '', note: '同位语 + consists of + numerous 用词精准' },
+          highScore: { en: 'Hainan, China\'s southernmost province, consists of Hainan Island and numerous smaller islands.', note: '同位语 + consists of + numerous 用词精准' },
           lowScore: { en: '', note: '拆成两句不够紧凑 + most southern 不自然 + includes 不如 consists of。评分 9-11 分档。' }
         }
       },
@@ -334,7 +338,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 boast → have / enjoy / possess；不会 tropics → tropical region / torrid zone；不会 earning → thus gaining / thereby winning',
           sentencePattern: '\'XX地处A，拥有B，被誉为C\' → \'Located in A, XX boasts B, earning it the reputation of C\'',
-          highScore: { en: '', note: 'Located + boasts + earning 层层递进' },
+          highScore: { en: 'Located in the tropics, Hainan boasts unique natural resources and a pleasant climate, earning it the reputation of the "Hawaii of the East."', note: 'Located + boasts + earning 层层递进' },
           lowScore: { en: '', note: '三句太松散 + very good / nice 词汇过于简单。评分 8-10 分档。' }
         }
       },
@@ -355,7 +359,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 special economic zone → special business area；不会 free trade port → free trading harbor；不会 domestic → home / internal / Chinese',
           sentencePattern: '\'XX是中国最大的A和B，每年吸引C前来D\' → \'As China\'s largest A and B, XX attracts C for D each year\'',
-          highScore: { en: '', note: 'As 开头紧凑 + attracts...for... 结构清晰' },
+          highScore: { en: 'As China\'s largest special economic zone and free trade port, Hainan attracts a large number of domestic and international tourists for sightseeing and vacations each year.', note: 'As 开头紧凑 + attracts...for... 结构清晰' },
           lowScore: { en: '', note: '两句不够紧凑 + biggest 不如 largest + area/harbor 不如 zone/port。评分 9-11 分档。' }
         }
       },
@@ -376,7 +380,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 abundant → rich / plentiful / a lot of；不会 is being developed into → is becoming / is being built into；不会 consumption → spending / purchasing',
           sentencePattern: '\'此外，XX还以A闻名，正在建设成为B\' → \'In addition, XX is famous for A, and is being developed into B\'',
-          highScore: { en: '', note: 'is being developed into 正在进行时被动语态精准' },
+          highScore: { en: 'In addition, Hainan is famous for its abundant seafood and tropical fruits, and is being developed into an international tourism and consumption center.', note: 'is being developed into 正在进行时被动语态精准' },
           lowScore: { en: '', note: 'known for 不如 famous for + travel and shopping 不如 tourism and consumption。评分 9-11 分档。' }
         }
       }
@@ -385,6 +389,7 @@ export const passagesPart3 = [
   // p25. 云南省 (2021.12)
   {
     id: 'p25',
+    level: 'CET-6',
     title: '云南省',
     year: '2021.12',
     topic: '地理概况',
@@ -408,7 +413,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 located in → is in / lies in / sits in；不会 is known as → is called / is named',
           sentencePattern: '\'XX位于A，素有B的美称\' → \'XX, located in A, is known as B\'',
-          highScore: { en: '', note: 'located 插入 + is known as 地道表达' },
+          highScore: { en: 'Yunnan, located in the southwest of China, is known as the "South of the Colorful Clouds."', note: 'located 插入 + is known as 地道表达' },
           lowScore: { en: '', note: '两句太松散 + has a beautiful name 不如 is known as。评分 9-11 分档。' }
         }
       },
@@ -429,7 +434,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 terrain → landscape / land / geographic features；不会 ranging from → covering / from...to... / including；不会 frigid → cold / freezing / polar',
           sentencePattern: '\'这里A复杂多样，B独特——从C到D几乎全部拥有\' → \'Its A is complex and diverse, and its B is unique — ranging from C to D\'',
-          highScore: { en: '', note: 'ranging from...to... 配合破折号使用地道' },
+          highScore: { en: 'Its terrain is complex and diverse, and its climate is unique — ranging from tropical to frigid zones.', note: 'ranging from...to... 配合破折号使用地道' },
           lowScore: { en: '', note: 'geography 不如 terrain + complicated 不如 complex + weather 不如 climate。评分 8-10 分档。' }
         }
       },
@@ -450,7 +455,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 ethnic minorities → minority nationalities / minority groups；不会 in harmony → peacefully / happily together；不会 rich and diverse → colorful / varied and abundant',
           sentencePattern: '\'XX是中国A最多的省份，B个少数民族在此和睦共处，创造了C\' → \'XX is the province with the largest number of A in China, where B ethnic minority groups live together in harmony and have created C\'',
-          highScore: { en: '', note: 'with + where 从句处理三个分句一气呵成' },
+          highScore: { en: 'Yunnan is the province with the largest number of ethnic minorities in China, where 25 ethnic minority groups live together in harmony and have created rich and diverse ethnic cultures.', note: 'with + where 从句处理三个分句一气呵成' },
           lowScore: { en: '', note: '三句太碎 + the most 不够正式 + made 不如 created。评分 8-10 分档。' }
         }
       },
@@ -471,7 +476,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 heritage sites → historical places / legacy sites；不会 such as → like / for example / including；不会 all over the world → worldwide / from around the globe',
           sentencePattern: '\'A和B等C每年吸引着D的游客\' → \'C, such as A and B, attract tourists from D each year\'',
-          highScore: { en: '', note: 'such as 列举 + heritage sites 专有名词准确' },
+          highScore: { en: 'Its natural and cultural heritage sites, such as the Old Town of Lijiang and the Stone Forest, attract tourists from all over the world each year.', note: 'such as 列举 + heritage sites 专有名词准确' },
           lowScore: { en: '', note: '两句断开 + places 重复 + bring 不如 attract 精准。评分 9-11 分档。' }
         }
       }
@@ -480,6 +485,7 @@ export const passagesPart3 = [
   // p26. 赵州桥 (2021.12)
   {
     id: 'p26',
+    level: 'CET-4',
     title: '赵州桥',
     year: '2021.12',
     topic: '历史遗迹',
@@ -504,7 +510,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 located in → is in / lies in；不会 dynasty → period / era / age；不会 approximately → about / around / roughly',
           sentencePattern: '\'XX位于A，建于B，距今已有约C年的历史\' → \'XX, located in A, was built during B and has a history of approximately C years\'',
-          highScore: { en: '', note: '三个信息块通过分词+and 连接于一句' },
+          highScore: { en: 'The Zhaozhou Bridge, located in Zhao County, Hebei Province, was built during the Sui Dynasty and has a history of approximately 1,400 years.', note: '三个信息块通过分词+and 连接于一句' },
           lowScore: { en: '', note: '三句太碎 + about 1400 years old 不够正式。评分 9-11 分档。' }
         }
       },
@@ -525,7 +531,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 renowned → famous / well-known / celebrated；不会 craftsman → artisan / master builder / skilled worker；不会 best-preserved → most well-preserved / best maintained',
           sentencePattern: '\'这座桥由A设计和建造，是B现存最古老、保存最完好的C\' → \'Designed and constructed by A, this bridge is the oldest existing and best-preserved C in B\'',
-          highScore: { en: '', note: '过去分词前置 + 两个并列最高级精准' },
+          highScore: { en: 'Designed and constructed by the renowned craftsman Li Chun, this bridge is the oldest existing and best-preserved stone arch bridge in the world.', note: '过去分词前置 + 两个并列最高级精准' },
           lowScore: { en: '', note: 'famous worker 不如 renowned craftsman + kept in the best condition 不如 best-preserved。评分 8-10 分档。' }
         }
       },
@@ -546,7 +552,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 total length → overall length / length from end to end；不会 span → distance across / width / arch length；不会 built from stone → made of stone / stone-built / constructed of stone',
           sentencePattern: '\'XX全长A，跨径B，桥体全部由C砌成\' → \'XX has a total length of A and a span of B, with the entire structure built from C\'',
-          highScore: { en: '', note: 'has a total length of + with 结构，三个数据一句完成' },
+          highScore: { en: 'The Zhaozhou Bridge has a total length of 50.82 meters and a span of 37.02 meters, with the entire structure built from stone.', note: 'has a total length of + with 结构，三个数据一句完成' },
           lowScore: { en: '', note: '三句分散 + is...long 不够正式 + made of stones 不如 built from stone。评分 9-11 分档。' }
         }
       },
@@ -567,7 +573,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 ingenious → clever / smart / brilliant；不会 open-spandrel → open-shoulder / hollow arch；不会 aesthetic appeal → beauty / visual attractiveness / good looks',
           sentencePattern: '\'XX设计巧妙独特——采用A，既减轻了B，又增加了C\' → \'Its design is ingenious and unique — the bridge employs A, which not only reduces B but also enhances C\'',
-          highScore: { en: '', note: 'ingenious + open-spandrel 专业 + which 从句功能清晰' },
+          highScore: { en: 'Its design is ingenious and unique — the bridge employs an open-spandrel arch structure, which not only reduces the overall weight but also enhances its aesthetic appeal.', note: 'ingenious + open-spandrel 专业 + which 从句功能清晰' },
           lowScore: { en: '', note: 'clever and special 不够正式 + open shoulders 术语不准确 + 三句分散。评分 8-10 分档。' }
         }
       },
@@ -587,7 +593,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 outstanding → excellent / remarkable / exceptional；不会 acclaimed as → known as / praised as / honored as / reputed as',
           sentencePattern: '\'XX是A的杰出代表，被誉为B\' → \'XX is an outstanding representative of A and is acclaimed as B\'',
-          highScore: { en: '', note: 'outstanding + acclaimed as 表达有力' },
+          highScore: { en: 'The Zhaozhou Bridge is an outstanding representative of ancient Chinese bridge architecture and is acclaimed as the "Number One Bridge Under Heaven."', note: 'outstanding + acclaimed as 表达有力' },
           lowScore: { en: '', note: 'very good example 薄弱 + people call it 口语化 + the best bridge 不如保持\'天下第一桥\'原意。评分 9-11 分档。' }
         }
       }
@@ -596,9 +602,10 @@ export const passagesPart3 = [
   // p27. 城镇化 (2021.12)
   {
     id: 'p27',
+    level: 'CET-4',
     title: '城镇化',
     year: '2021.12',
-    topic: '社会发展',
+    topic: '社会民生',
     difficulty: 3,
     fullCN: '改革开放以来，中国经历了人类历史上规模最大的城镇化进程。数以亿计的农村人口进入城市工作和生活，城镇化率从不到20%上升到超过65%。城镇化极大地改善了人民的生活条件，但也带来了交通拥堵、环境污染等挑战。为应对这些问题，中国正推行以人为核心的新型城镇化战略，注重城乡协调发展和可持续发展。未来，中国将继续推进高质量城镇化，让更多人共享现代化成果。',
     fullEN: 'Since reform and opening-up, China has experienced the largest urbanization process in human history. Hundreds of millions of rural residents have moved into cities for work and life, with the urbanization rate rising from less than 20% to over 65%. Urbanization has greatly improved people\'s living conditions, but it has also brought challenges such as traffic congestion and environmental pollution. To address these issues, China is implementing a new people-centered urbanization strategy that emphasizes balanced development between urban and rural areas as well as sustainable development. In the future, China will continue to promote high-quality urbanization so that more people can share in the fruits of modernization.',
@@ -620,7 +627,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 reform and opening-up → China\'s opening and reform / economic reform and opening；不会 urbanization → urban development / city growth / urban migration',
           sentencePattern: '\'XX以来，中国经历了人类历史上规模最大的A\' → \'Since XX, China has experienced the largest A in human history\'',
-          highScore: { en: '', note: 'Since + 现在完成时 + in human history 强调规模' },
+          highScore: { en: 'Since reform and opening-up, China has experienced the largest urbanization process in human history.', note: 'Since + 现在完成时 + in human history 强调规模' },
           lowScore: { en: '', note: 'After 不如 Since + gone through 不如 experienced + mankind 不如 human。评分 9-11 分档。' }
         }
       },
@@ -641,7 +648,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 Hundreds of millions → Several hundred million / A few hundred million；不会 rural residents → countryside people / villagers / farming population；不会 urbanization rate → urban population ratio / city population rate',
           sentencePattern: '\'数以亿计的A进入B工作生活，C率从不到X%上升到超过Y%\' → \'Hundreds of millions of A have moved into B for work and life, with the C rate rising from less than X% to over Y%\'',
-          highScore: { en: '', note: 'Hundreds of millions + with 结构整合数据' },
+          highScore: { en: 'Hundreds of millions of rural residents have moved into cities for work and life, with the urbanization rate rising from less than 20% to over 65%.', note: 'Hundreds of millions + with 结构整合数据' },
           lowScore: { en: '', note: 'from the countryside 不如 rural + people 不如 residents + 拆句 + under 不如 less than。评分 8-10 分档。' }
         }
       },
@@ -662,7 +669,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 living conditions → quality of life / living standards；不会 traffic congestion → traffic jams / heavy traffic / road congestion；不会 environmental pollution → pollution / environmental damage',
           sentencePattern: '\'A极大地改善了B，但也带来了C、D等挑战\' → \'A has greatly improved B, but it has also brought challenges such as C and D\'',
-          highScore: { en: '', note: '现在完成时 + but 转折 + such as 列举简洁' },
+          highScore: { en: 'Urbanization has greatly improved people\'s living conditions, but it has also brought challenges such as traffic congestion and environmental pollution.', note: '现在完成时 + but 转折 + such as 列举简洁' },
           lowScore: { en: '', note: 'made...better 不如 improved...conditions + problems 不如 challenges + dirty environment 不如 environmental pollution。评分 8-10 分档。' }
         }
       },
@@ -683,7 +690,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 address → deal with / solve / tackle；不会 people-centered → human-centered / people-oriented / putting people first；不会 balanced development → coordinated development / harmonious growth',
           sentencePattern: '\'为应对A，中国正推行以人为核心的B，注重C和D\' → \'To address A, China is implementing a new people-centered B that emphasizes C as well as D\'',
-          highScore: { en: '', note: 'To address + people-centered + that emphasizes + as well as 层层嵌套' },
+          highScore: { en: 'To address these issues, China is implementing a new people-centered urbanization strategy that emphasizes balanced development between urban and rural areas as well as sustainable development.', note: 'To address + people-centered + that emphasizes + as well as 层层嵌套' },
           lowScore: { en: '', note: 'solve 不如 address + carrying out 不如 implementing + puts people first 不如 people-centered + 拆成两句。评分 8-10 分档。' }
         }
       },
@@ -704,7 +711,7 @@ export const passagesPart3 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 high-quality → quality / excellent / superior；不会 share in the fruits of → benefit from / enjoy the results of / share the benefits of；不会 modernization → modern development / modern life / modern society',
           sentencePattern: '\'未来，XX将继续推进A，让更多人共享B成果\' → \'In the future, XX will continue to promote A so that more people can share in the fruits of B\'',
-          highScore: { en: '', note: 'will continue to + so that + share in the fruits of 地道' },
+          highScore: { en: 'In the future, China will continue to promote high-quality urbanization so that more people can share in the fruits of modernization.', note: 'will continue to + so that + share in the fruits of 地道' },
           lowScore: { en: '', note: 'keep promoting 不如 continue to promote + good 不如 high-quality + let/enjoy 不如 so that/share in the fruits。评分 9-11 分档。' }
         }
       }
@@ -713,9 +720,10 @@ export const passagesPart3 = [
   // p28. 大兴国际机场 (2020.12)
   {
     id: 'p28',
+    level: 'CET-6',
     title: '大兴国际机场',
     year: '2020.12',
-    topic: '现代工程',
+    topic: '科技成就',
     difficulty: 3,
     fullCN: '北京大兴国际机场位于北京市南部，于2019年9月正式投入运营。该机场被英国《卫报》评为"新世界七大奇迹"之首，其航站楼是世界上最大的单体航站楼。机场的设计融入了中国传统建筑元素，从空中俯瞰宛如一只展翅的凤凰。大兴机场的建成大大缓解了首都国际机场的压力，每年可满足7200万人次的旅客吞吐量。预计到2025年，大兴机场将成为世界上最繁忙的机场之一。',
     fullEN: 'Beijing Daxing International Airport, located in the south of Beijing, was officially put into operation in September 2019. The airport was ranked first among the "Seven Wonders of the New World" by The Guardian, and its terminal is the largest single-building terminal in the world. The design of the airport incorporates elements of traditional Chinese architecture, and from an aerial view, it looks like a phoenix spreading its wings. The completion of Daxing Airport has greatly relieved the pressure on Capital International Airport, with an annual passenger throughput capacity of 72 million. It is expected that by 2025, Daxing Airport will become one of the busiest airports in the world.',
@@ -736,7 +744,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 put into operation → opened / started operating / began service',
           sentencePattern: '\'XX位于A，于B年C月正式投入运营\' → XX, located in A, was officially put into operation in C B',
-          highScore: { en: '', note: 'located 分词插入 + put into operation' },
+          highScore: { en: 'Beijing Daxing International Airport, located in the south of Beijing, was officially put into operation in September 2019.', note: 'located 分词插入 + put into operation' },
           lowScore: { en: '', note: 'is in 直接 + and 连接不如分词插入紧凑。评分 9-12 分档。' }
         }
       },
@@ -756,7 +764,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 was ranked → was rated / was named / was listed；不会 single-building → stand-alone / independent / one-piece',
           sentencePattern: '\'XX被A评为B之首，其C是世界上最大的D\' → XX was ranked first among B by A, and its C is the largest D in the world',
-          highScore: { en: '', note: 'was ranked first among + single-building terminal' },
+          highScore: { en: 'The airport was ranked first among the "Seven Wonders of the New World" by The Guardian, and its terminal is the largest single-building terminal in the world.', note: 'was ranked first among + single-building terminal' },
           lowScore: { en: '', note: 'said...is the number one 不如 was ranked first 精准 + one-building 不如 single-building。评分 8-10 分档。' }
         }
       },
@@ -777,27 +785,27 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 incorporate → include / contain / combine / blend；不会 aerial → bird\'s eye / from above / from the sky；不会 phoenix → legendary bird / firebird',
           sentencePattern: '\'XX的设计融入了A元素，从空中俯瞰宛如一只B的C\' → The design of XX incorporates elements of A, and from an aerial view, it looks like a C doing B',
-          highScore: { en: '', note: 'incorporates + from an aerial view + a phoenix spreading its wings' },
+          highScore: { en: 'The design of the airport incorporates elements of traditional Chinese architecture, and from an aerial view, it looks like a phoenix spreading its wings.', note: 'incorporates + from an aerial view + a phoenix spreading its wings' },
           lowScore: { en: '', note: 'has 不如 incorporates + Looking from the sky 不如 from an aerial view + bird 不如 phoenix。评分 8-10 分档。' }
         }
       },
       {
         id: 'p28-s3',
         cn: '大兴机场的建成大大缓解了首都国际机场的压力，每年可满足7200万人次的旅客吞吐量。',
-        en: 'The completion of Daxing Airport has greatly relieved the pressure on Capital International Airport, with an annual passenger throughput capacity of 72 million.',
+        en: 'The completion of Daxing Airport has greatly relieved the pressure on Capital International Airport, and it has an annual passenger throughput capacity of 72 million.',
         annotations: [
           { fragment: 'has greatly relieved the pressure on', type: 'structure', label: '现完 + 缓解压力', detail: 'has greatly relieved = 大大缓解了。relieve pressure on = 缓解...的压力。pressure 后用 on。' },
-          { fragment: 'with an annual passenger throughput capacity of', type: 'structure', label: 'with 复合补充', detail: 'with + 名词短语 = 拥有...（补充说明能力/特征）。throughput = 吞吐量。' }
+          { fragment: 'has an annual passenger throughput capacity of', type: 'structure', label: '补充吞吐能力', detail: '用 and it has... 另起并列分句补充吞吐量，避免 with 结构在句末悬空、指代不清。throughput = 吞吐量。' }
         ],
         technique: {
           difficulty: 3,
-          structure: 'The completion of + 主语 + has done + with + 补充说明',
-          structureAnalysis: 'The completion of Daxing Airport → has greatly relieved (the pressure on Capital International Airport) → with (an annual passenger throughput capacity of 72 million)',
-          whyGood: '① The completion 名词化作主语，简洁 ② relieve pressure on 标准搭配 ③ with 补充吞吐量数据，避免另起一句。',
+          structure: 'The completion of + 主语 + has done + and + it has + 补充说明',
+          structureAnalysis: 'The completion of Daxing Airport → has greatly relieved (the pressure on Capital International Airport) → and → it → has (an annual passenger throughput capacity of 72 million)',
+          whyGood: '① The completion 名词化作主语，简洁 ② relieve pressure on 标准搭配 ③ 用并列分句补充吞吐量数据，主语明确（the airport），不会产生悬空修饰。',
           keyVocab: ['', ''],
           substitutionGuide: '不会 relieve → reduce / ease / lessen；不会 throughput → handling capacity / traffic capacity / passenger volume',
-          sentencePattern: '\'A的建成大大缓解了B的压力，每年可满足C人次的吞吐量\' → The completion of A has greatly relieved the pressure on B, with an annual throughput capacity of C',
-          highScore: { en: '', note: '名词化 + relieve pressure on + with + throughput capacity' },
+          sentencePattern: '\'A的建成大大缓解了B的压力，每年可满足C人次的吞吐量\' → The completion of A has greatly relieved the pressure on B, and it has an annual throughput capacity of C',
+          highScore: { en: 'The completion of Daxing Airport has greatly relieved the pressure on Capital International Airport, and it has an annual passenger throughput capacity of 72 million.', note: '名词化 + relieve pressure on + 并列分句补充吞吐能力' },
           lowScore: { en: '', note: 'After...was built 不如 The completion 简洁 + reduced 不如 relieved 精准。评分 8-10 分档。' }
         }
       },
@@ -817,7 +825,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 It is expected that → People expect that / By 2025 it is predicted that / It is estimated that',
           sentencePattern: '\'预计到A年，XX将成为世界上最B的YY之一\' → It is expected that by A, XX will become one of the B YY in the world',
-          highScore: { en: '', note: 'It is expected that + by + will become + one of the busiest' },
+          highScore: { en: 'It is expected that by 2025, Daxing Airport will become one of the busiest airports in the world.', note: 'It is expected that + by + will become + one of the busiest' },
           lowScore: { en: '', note: 'People expect 不如 It is expected that + before 不如 by 精准。评分 8-11 分档。' }
         }
       }
@@ -826,9 +834,10 @@ export const passagesPart3 = [
   // p29. 港珠澳大桥 (2020.12)
   {
     id: 'p29',
+    level: 'CET-6',
     title: '港珠澳大桥',
     year: '2020.12',
-    topic: '桥梁工程',
+    topic: '科技成就',
     difficulty: 3,
     fullCN: '港珠澳大桥是连接香港、珠海和澳门的跨海大桥，全长55公里，是世界上最长的跨海大桥。大桥由桥梁、人工岛和海底隧道三部分组成，于2018年10月正式通车。大桥的建设克服了诸多技术难题，体现了中国在桥梁建设领域的卓越能力。它将香港与珠三角西岸的交通时间从3小时缩短到30分钟，极大地促进了粤港澳大湾区的经济一体化。',
     fullEN: 'The Hong Kong-Zhuhai-Macao Bridge is a sea-crossing bridge connecting Hong Kong, Zhuhai, and Macao, with a total length of 55 kilometers, making it the longest sea-crossing bridge in the world. The bridge consists of three parts: bridges, artificial islands, and an undersea tunnel, and was officially opened to traffic in October 2018. The construction of the bridge overcame numerous technical challenges, demonstrating China\'s outstanding capability in the field of bridge construction. It has reduced the travel time between Hong Kong and the western bank of the Pearl River Delta from three hours to thirty minutes, greatly promoting the economic integration of the Guangdong-Hong Kong-Macao Greater Bay Area.',
@@ -850,7 +859,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 sea-crossing → over-sea / across the sea；不会 making it → and this makes it / so it is',
           sentencePattern: '\'XX是连接A、B和C的跨海大桥，全长D公里，是E最长的F\' → XX is a sea-crossing bridge connecting A, B, and C, with a total length of D km, making it the longest F in E',
-          highScore: { en: '', note: 'connecting 分词 + with 补充 + making 结果' },
+          highScore: { en: 'The Hong Kong-Zhuhai-Macao Bridge is a sea-crossing bridge connecting Hong Kong, Zhuhai, and Macao, with a total length of 55 kilometers, making it the longest sea-crossing bridge in the world.', note: 'connecting 分词 + with 补充 + making 结果' },
           lowScore: { en: '', note: '三句分离不够紧凑 + sea bridge 不如 sea-crossing bridge 精确。评分 8-10 分档。' }
         }
       },
@@ -871,7 +880,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 consist of → is made up of / includes / has；不会 undersea → underwater / under the sea / submarine',
           sentencePattern: '\'XX由A、B和C三部分组成，于D年F月正式通车\' → XX consists of three parts: A, B, and C, and was officially opened to traffic in F D',
-          highScore: { en: '', note: 'consists of + 冒号列举 + opened to traffic' },
+          highScore: { en: 'The bridge consists of three parts: bridges, artificial islands, and an undersea tunnel, and was officially opened to traffic in October 2018.', note: 'consists of + 冒号列举 + opened to traffic' },
           lowScore: { en: '', note: 'is made of 不如 consists of + man-made 不如 artificial + opened 缺少 to traffic。评分 8-10 分档。' }
         }
       },
@@ -891,7 +900,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 overcame → solved / beat / got over；不会 demonstrating → showing / reflecting / displaying',
           sentencePattern: '\'XX的A克服了B，体现了C在D领域的卓越能力\' → The A of XX overcame B, demonstrating C\'s outstanding capability in the field of D',
-          highScore: { en: '', note: 'overcame + demonstrating 分词结果 + outstanding capability' },
+          highScore: { en: 'The construction of the bridge overcame numerous technical challenges, demonstrating China\'s outstanding capability in the field of bridge construction.', note: 'overcame + demonstrating 分词结果 + outstanding capability' },
           lowScore: { en: '', note: 'solved 不如 overcame + shows 不如 demonstrates + can build...well 口语化。评分 8-10 分档。' }
         }
       },
@@ -912,7 +921,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 reduce from...to → shorten from...to / cut from...to / make the time go from...to；不会 Greater Bay Area → big bay area / Guangdong-HK-Macao big bay',
           sentencePattern: '\'XX将A与B的C从D缩短到E，极大地促进了F的G\' → XX has reduced C between A and B from D to E, greatly promoting the G of F',
-          highScore: { en: '', note: 'reduce from...to + promoting 分词 + Greater Bay Area' },
+          highScore: { en: 'It has reduced the travel time between Hong Kong and the western bank of the Pearl River Delta from three hours to thirty minutes, greatly promoting the economic integration of the Guangdong-Hong Kong-Macao Greater Bay Area.', note: 'reduce from...to + promoting 分词 + Greater Bay Area' },
           lowScore: { en: '', note: 'makes...shorter 不如 reduce...from...to 精准 + joining 不如 integration + big bay area 不规范。评分 8-10 分档。' }
         }
       }
@@ -921,12 +930,13 @@ export const passagesPart3 = [
   // p30. 青藏铁路 (2020.12)
   {
     id: 'p30',
+    level: 'CET-4',
     title: '青藏铁路',
     year: '2020.12',
-    topic: '铁路建设',
+    topic: '科技成就',
     difficulty: 2,
-    fullCN: '青藏铁路是世界上最高、最长的高原铁路，连接青海省西宁市和西藏自治区拉萨市，全长1956公里。铁路最高点海拔5072米，大部分路段位于海拔4000米以上。由于高原缺氧和永久冻土等极端自然条件，青藏铁路的建设难度极大。工程师们攻克了三大世界性技术难题：高原缺氧、多年冻土和生态环境保护。青藏铁路的通车结束了西藏不通铁路的历史，促进了当地的经济发展和民族团结。',
-    fullEN: 'The Qinghai-Tibet Railway is the highest and longest plateau railway in the world, connecting Xining in Qinghai Province with Lhasa in the Tibet Autonomous Region, with a total length of 1,956 kilometers. The highest point of the railway reaches an altitude of 5,072 meters, with most sections located above 4,000 meters above sea level. Due to extreme natural conditions such as oxygen deficiency on the plateau and permafrost, the construction of the Qinghai-Tibet Railway was extremely challenging. Engineers overcame three major global technical challenges: plateau oxygen deficiency, permafrost, and ecological environment protection. The opening of the Qinghai-Tibet Railway ended Tibet\'s history of having no railway access, promoting local economic development and ethnic unity.',
+    fullCN: '青藏铁路是世界上最高、最长的高原铁路，连接青海省西宁市和西藏自治区拉萨市，全长1956公里。铁路最高点海拔5072米，全线约有960公里路段位于海拔4000米以上。由于高原缺氧和永久冻土等极端自然条件，青藏铁路的建设难度极大。工程师们攻克了三大世界性技术难题：高原缺氧、多年冻土和生态环境保护。青藏铁路的通车结束了西藏不通铁路的历史，促进了当地的经济发展和民族团结。',
+    fullEN: 'The Qinghai-Tibet Railway is the highest and longest plateau railway in the world, connecting Xining in Qinghai Province with Lhasa in the Tibet Autonomous Region, with a total length of 1,956 kilometers. The highest point of the railway reaches an altitude of 5,072 meters, with about 960 kilometers of the line located above 4,000 meters above sea level. Due to extreme natural conditions such as oxygen deficiency on the plateau and permafrost, the construction of the Qinghai-Tibet Railway was extremely challenging. Engineers overcame three major global technical challenges: plateau oxygen deficiency, permafrost, and ecological environment protection. The opening of the Qinghai-Tibet Railway ended Tibet\'s history of having no railway access, promoting local economic development and ethnic unity.',
     sentences: [
       {
         id: 'p30-s0',
@@ -945,27 +955,27 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 plateau → highland / high-altitude；不会 connect...with → link...to / join...and',
           sentencePattern: '\'XX是世界上最高最长的YY，连接A省B和C区D，全长E公里\' → XX is the highest and longest YY in the world, connecting B in A with D in C, with a total length of E km',
-          highScore: { en: '', note: '并列最高级 + connecting + with 补充' },
+          highScore: { en: 'The Qinghai-Tibet Railway is the highest and longest plateau railway in the world, connecting Xining in Qinghai Province with Lhasa in the Tibet Autonomous Region, with a total length of 1,956 kilometers.', note: '并列最高级 + connecting + with 补充' },
           lowScore: { en: '', note: '三句分离 + on the plateau 不如 plateau railway 简洁。评分 8-10 分档。' }
         }
       },
       {
         id: 'p30-s1',
-        cn: '铁路最高点海拔5072米，大部分路段位于海拔4000米以上。',
-        en: 'The highest point of the railway reaches an altitude of 5,072 meters, with most sections located above 4,000 meters above sea level.',
+        cn: '铁路最高点海拔5072米，全线约有960公里路段位于海拔4000米以上。',
+        en: 'The highest point of the railway reaches an altitude of 5,072 meters, with about 960 kilometers of the line located above 4,000 meters above sea level.',
         annotations: [
           { fragment: 'reaches an altitude of', type: 'phrase', label: '海拔达到', detail: 'reach an altitude of + 数字 = 海拔达到...。altitude = 海拔/高度。比 height 专业。' },
-          { fragment: 'with most sections located above', type: 'structure', label: 'with + n. + done 复合结构', detail: 'with + n. + 过去分词 = 伴随情况。sections = 路段。located above = 位于...之上。' }
+          { fragment: 'with about 960 kilometers of the line located above', type: 'structure', label: 'with + n. + done 复合结构', detail: 'with + n. + 过去分词 = 伴随情况。960 kilometers of the line = 全线约960公里路段。located above = 位于...之上。' }
         ],
         technique: {
           difficulty: 2,
           structure: '主语 + reaches an altitude of + with + n. + located above...',
-          structureAnalysis: 'The highest point of the railway → reaches (an altitude of 5,072m) → with (most sections located above 4,000m above sea level)',
+          structureAnalysis: 'The highest point of the railway → reaches (an altitude of 5,072m) → with (about 960 kilometers of the line located above 4,000m above sea level)',
           whyGood: '① reach an altitude of 是表达海拔的标准句式 ② with + n. + done 复合结构补充路段信息，紧凑高效。',
           keyVocab: ['', ''],
           substitutionGuide: '不会 altitude → height / elevation；不会 sections → parts / segments / stretches',
-          sentencePattern: '\'XX最高点海拔A米，大部分路段位于海拔B米以上\' → The highest point of XX reaches an altitude of A meters, with most sections located above B meters above sea level',
-          highScore: { en: '', note: 'reaches an altitude of + with + located above' },
+          sentencePattern: '\'XX最高点海拔A米，全线约有C公里路段位于海拔B米以上\' → The highest point of XX reaches an altitude of A meters, with about C kilometers of the line located above B meters above sea level',
+          highScore: { en: 'The highest point of the railway reaches an altitude of 5,072 meters, with about 960 kilometers of the line located above 4,000 meters above sea level.', note: 'reaches an altitude of + with + located above' },
           lowScore: { en: '', note: 'highest place 不如 highest point + is...high 不如 reaches an altitude of + 缺少 above sea level。评分 8-10 分档。' }
         }
       },
@@ -986,7 +996,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 oxygen deficiency → lack of oxygen / thin air；不会 permafrost → frozen ground / permanently frozen soil',
           sentencePattern: '\'由于A和B等极端自然条件，XX的C难度极大\' → Due to extreme natural conditions such as A and B, the C of XX was extremely challenging',
-          highScore: { en: '', note: 'Due to + such as + oxygen deficiency/permafrost + extremely challenging' },
+          highScore: { en: 'Due to extreme natural conditions such as oxygen deficiency on the plateau and permafrost, the construction of the Qinghai-Tibet Railway was extremely challenging.', note: 'Due to + such as + oxygen deficiency/permafrost + extremely challenging' },
           lowScore: { en: '', note: 'not enough oxygen 不如 oxygen deficiency + frozen ground 不如 permafrost。评分 8-10 分档。' }
         }
       },
@@ -1006,7 +1016,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 overcame → solved / conquered / dealt with；不会 ecological → environmental / eco- / green',
           sentencePattern: '\'XX攻克了N大世界性技术难题：A、B和C\' → XX overcame N major global technical challenges: A, B, and C',
-          highScore: { en: '', note: 'overcame + three major global challenges + 冒号列举' },
+          highScore: { en: 'Engineers overcame three major global technical challenges: plateau oxygen deficiency, permafrost, and ecological environment protection.', note: 'overcame + three major global challenges + 冒号列举' },
           lowScore: { en: '', note: 'solved 不如 overcame + not enough oxygen 不专业 + protecting nature 不如 ecological protection。评分 8-10 分档。' }
         }
       },
@@ -1027,7 +1037,7 @@ export const passagesPart3 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 ended the history → made...no longer a place without / made it the first time for；不会 ethnic unity → unity of different ethnic groups / national unity',
           sentencePattern: '\'XX的通车结束了A不通B的历史，促进了当地的C和D\' → The opening of XX ended A\'s history of having no B, promoting local C and D',
-          highScore: { en: '', note: 'The opening + ended the history + promoting + ethnic unity' },
+          highScore: { en: 'The opening of the Qinghai-Tibet Railway ended Tibet\'s history of having no railway access, promoting local economic development and ethnic unity.', note: 'The opening + ended the history + promoting + ethnic unity' },
           lowScore: { en: '', note: '多句分散 + opened 不如 The opening 名词化 + makes...united 口语化。评分 8-10 分档。' }
         }
       }

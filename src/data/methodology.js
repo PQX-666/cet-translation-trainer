@@ -44,9 +44,22 @@ export const fallbackMethods = {
   ],
 };
 
+export const scoringPriority = {
+  title: '评分底层逻辑：先对，再美',
+  subtitle: '阅卷按「整体印象」给 15 分档，不是按高级结构数量加分',
+  levels: [
+    { name: '第一优先：信息完整', detail: '原文要点是否全部译出。漏译、错译是失分主因，约占四成权重。' },
+    { name: '第二优先：语法正确', detail: '时态、主谓一致、单复数、冠词、句子完整性。整句读不通会被明显压档。' },
+    { name: '第三优先：表达地道', detail: '固定搭配、词性、逻辑连接是否自然。中式英语会拉低印象分。' },
+    { name: '最后才是结构升级', detail: '复杂句是锦上添花。用错复杂结构（悬垂分词、定语从句套错、时态混乱）比简单句扣得更多。' },
+  ],
+  rule: '简单且正确 > 复杂且错误。先把 10 分档做稳，再追求 12–14 分档。',
+};
+
 export const highScoreStructures = {
   title: '高分四结构',
-  subtitle: '如何让句子从 8 分档跃升至 14 分档',
+  subtitle: '在保证准确的前提下，用它们提升书面感',
+  caution: '这些结构是可选加分项，不是必选项。CET 评分首先看信息是否完整、语法是否正确；为了套结构而写出病句，得分反而更低。',
   structures: [
     {
       id: 's1',
@@ -64,7 +77,7 @@ export const highScoreStructures = {
       principle: '两句合并为一句，用分词/不定式/同位语替代连词',
       examples: [
         { chinese: '扇子常作为礼物赠与他人，表达美好祝福', target: 'Fans are often given to others as gifts, expressing good wishes and sincere feelings.', note: '用现在分词 expressing 替代 and express' },
-        { chinese: '中国盛产竹子，是最早开发利用竹资源的国家', target: 'China is rich in bamboo, being the first country to develop and utilize bamboo resources.', note: '用 being 替代 and is' },
+        { chinese: '中国盛产竹子，是最早开发利用竹资源的国家', target: 'China is rich in bamboo and is the first country to develop and utilize bamboo resources.', note: '两个并列谓语用 and 连接；不要用 being 制造悬垂分词' },
         { chinese: '洋山港是上海航运中心的重要组成部分', target: 'Yangshan Port, an integral part of Shanghai shipping center, ...', note: '同位语替代定语从句 which is' },
       ],
     },
@@ -82,7 +95,7 @@ export const highScoreStructures = {
       },
       examples: [
         { chinese: '国人爱竹。自古以来无数文人以竹为主题创作了无数作品。', target: 'Chinese people love bamboo. As a consequence, since ancient times, countless scholars have created countless works with bamboo as the theme.', note: '加 As a consequence 连接因果' },
-        { chinese: '扇子自古以来就受到中国人喜爱，但是现在已经不是消暑纳凉的工具。', target: 'Fans have been loved by Chinese people since ancient times. On the contrary, now they are no longer tools to cool down the summer.', note: '加 On the contrary 强化转折' },
+        { chinese: '扇子自古以来就受到中国人喜爱，但是现在已经不是消暑纳凉的工具。', target: 'Fans have been loved by Chinese people since ancient times. However, they are no longer tools for cooling down in summer.', note: '普通转折用 However；On the contrary 只用于否定前文、提出相反情况' },
       ],
     },
     {

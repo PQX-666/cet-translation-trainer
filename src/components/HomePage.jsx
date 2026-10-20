@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react'
 import { passages } from '../data'
-import { loadData, getAccuracyStats, getTodayPassage } from '../utils/storage'
-import { fallbackMethods, highScoreStructures, translationSteps } from '../data/methodology'
-import { BookOpen, Lightbulb, Target, TrendingUp, ArrowRight, Zap, CheckCircle, AlertCircle, ChevronDown, ChevronRight, Play, RotateCw } from 'lucide-react'
+import { loadData, getAccuracyStats, getTodayPassage, getTodayProgress } from '../utils/storage'
+import { fallbackMethods, highScoreStructures, translationSteps, scoringPriority } from '../data/methodology'
+import SourceBadge from './SourceBadge'
+import AnnouncementBanner from './AnnouncementBanner'
+import { BookOpen, Lightbulb, Target, TrendingUp, ArrowRight, Zap, CheckCircle, AlertCircle, ChevronDown, ChevronRight, RotateCw } from 'lucide-react'
 
 function AccordionSection({ title, subtitle, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen)
@@ -23,9 +25,18 @@ function AccordionSection({ title, subtitle, children, defaultOpen = false }) {
   )
 }
 
+function SiteFooter() {
+  return (
+    <footer className="pt-2 pb-1 text-center text-[11px] text-ink-400 dark:text-ink-500">
+      CET 翻译备考 · 创作者：辰轩 · © {new Date().getFullYear()} 版权所有
+    </footer>
+  )
+}
+
 export default function HomePage({ appData, onNavigate }) {
   const stats = useMemo(() => getAccuracyStats(), [appData])
   const todayPassage = useMemo(() => getTodayPassage(passages), [appData])
+  const todayProgress = useMemo(() => getTodayProgress(), [appData])
   const data = useMemo(() => loadData(), [appData])
   const completedCount = passages.filter(p => data.passageProgress[p.id]?.completed).length
   const totalLearned = stats.patternTotal + stats.phraseTotal + stats.vocabTotal
@@ -51,6 +62,8 @@ export default function HomePage({ appData, onNavigate }) {
   if (isNewUser) {
     return (
       <div className="space-y-8">
+        <AnnouncementBanner onNavigate={onNavigate} />
+
         <div className="text-center py-8">
           <div className="text-5xl mb-4">📝</div>
           <h1 className="text-2xl font-bold text-ink-800 dark:text-cream-100 mb-2">
@@ -81,27 +94,89 @@ export default function HomePage({ appData, onNavigate }) {
           ))}
         </div>
 
-        <div className="card p-5">
-          <h3 className="font-bold text-ink-800 dark:text-cream-100 mb-3 text-sm">学习方法论预览</h3>
-          <p className="text-xs text-ink-500 dark:text-ink-400 mb-4">
-            在做题之前，先了解翻译的核心方法论，事半功倍。
-          </p>
-          <div className="space-y-2">
-            {[
-              { title: translationSteps.title, desc: translationSteps.subtitle },
-              { title: fallbackMethods.title, desc: fallbackMethods.subtitle },
-              { title: highScoreStructures.title, desc: highScoreStructures.subtitle },
-            ].map((m, i) => (
-              <div key={i} className="flex items-center gap-3 px-4 py-3 bg-cream-50 dark:bg-ink-900 rounded-xl">
-                <Play size={14} className="text-amber-500 flex-shrink-0" />
-                <div>
-                  <div className="text-sm font-medium text-ink-700 dark:text-cream-200">{m.title}</div>
-                  <div className="text-xs text-ink-400 dark:text-ink-500">{m.desc}</div>
+        <div>
+          <h3 className="font-bold text-ink-800 dark:text-cream-100 mb-3 flex items-center gap-2 text-sm">
+            <BookOpen size={16} className="text-amber-500" />
+            学习方法论
+          </h3>
+
+          <AccordionSection title={scoringPriority.title} subtitle={scoringPriority.subtitle} defaultOpen>
+            <div className="space-y-2">
+              {scoringPriority.levels.map((level, i) => (
+                <div key={i} className="flex items-start gap-2 bg-cream-50 dark:bg-ink-900 rounded-lg p-2.5">
+                  <span className="w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 flex items-center justify-center text-[10px] font-bold flex-shrink-0">{i + 1}</span>
+                  <div>
+                    <div className="text-xs font-bold text-ink-700 dark:text-cream-200">{level.name}</div>
+                    <div className="text-[11px] text-ink-500 dark:text-ink-400 leading-relaxed mt-0.5">{level.detail}</div>
+                  </div>
                 </div>
+              ))}
+              <div className="text-[11px] text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 rounded-lg px-3 py-2 font-medium">
+                {scoringPriority.rule}
               </div>
-            ))}
-          </div>
+            </div>
+          </AccordionSection>
+
+          <AccordionSection title={translationSteps.title} subtitle={translationSteps.subtitle}>
+            <div className="grid grid-cols-1 gap-3">
+              {translationSteps.steps.map(step => (
+                <div key={step.id} className="bg-cream-50 dark:bg-ink-900 rounded-xl p-3 border border-cream-200 dark:border-ink-700">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 flex items-center justify-center text-xs font-bold">{step.id.replace('step', '')}</span>
+                    <span className="font-bold text-xs text-ink-700 dark:text-cream-200">{step.name}</span>
+                    <span className="tag bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 text-[10px]">{step.tag}</span>
+                  </div>
+                  <ul className="space-y-0.5 mb-2">
+                    {step.checklist.map((item, i) => (
+                      <li key={i} className="text-[11px] text-ink-600 dark:text-ink-300 flex items-start gap-1">
+                        <span className="text-amber-400 mt-0.5">•</span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-[10px] text-amber-600 dark:text-amber-400 italic">TIP: {step.tip}</p>
+                </div>
+              ))}
+            </div>
+          </AccordionSection>
+
+          <AccordionSection title={fallbackMethods.title} subtitle={fallbackMethods.subtitle}>
+            <div className="grid grid-cols-1 gap-3">
+              {fallbackMethods.methods.map(m => (
+                <div key={m.id} className="bg-orange-50 dark:bg-orange-500/5 rounded-xl p-3 border border-orange-200 dark:border-orange-500/20">
+                  <h5 className="font-bold text-xs text-ink-700 dark:text-cream-200 mb-1">{m.name}</h5>
+                  <p className="text-[11px] text-ink-500 dark:text-ink-400 mb-2">{m.principle}</p>
+                  {m.examples.slice(0, 2).map((ex, i) => (
+                    <div key={i} className="text-[11px]">
+                      <span className="text-ink-400 dark:text-ink-500 line-through mr-1">{ex.original}</span>
+                      <span className="text-ink-700 dark:text-cream-200 font-medium">{ex.fallback}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </AccordionSection>
+
+          <AccordionSection title={highScoreStructures.title} subtitle={highScoreStructures.subtitle}>
+            {highScoreStructures.caution && (
+              <div className="text-[11px] text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 rounded-lg px-3 py-2 mb-3 leading-relaxed">
+                {highScoreStructures.caution}
+              </div>
+            )}
+            <div className="grid grid-cols-1 gap-3">
+              {highScoreStructures.structures.map(s => (
+                <div key={s.id} className="bg-green-50 dark:bg-green-500/5 rounded-xl p-3 border border-green-200 dark:border-green-500/20">
+                  <h5 className="font-bold text-xs text-ink-700 dark:text-cream-200 mb-1">{s.name}</h5>
+                  <p className="text-[11px] text-ink-500 dark:text-ink-400 mb-2">{s.principle}</p>
+                  {s.examples[0]?.target && (
+                    <div className="text-[11px] text-ink-600 dark:text-ink-300 font-serif italic">{s.examples[0].target}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </AccordionSection>
         </div>
+
+        <SiteFooter />
       </div>
     )
   }
@@ -109,6 +184,8 @@ export default function HomePage({ appData, onNavigate }) {
   // Returning user dashboard
   return (
     <div className="space-y-6">
+      <AnnouncementBanner onNavigate={onNavigate} />
+
       {/* Hero */}
       <div className="text-center py-4">
         <h1 className="text-2xl font-bold text-ink-800 dark:text-cream-100 mb-1">
@@ -133,6 +210,51 @@ export default function HomePage({ appData, onNavigate }) {
         ))}
       </div>
 
+      {/* Daily goal progress ring */}
+      {(() => {
+        const sentPct = todayProgress.goal.sentences > 0 ? Math.min(100, (todayProgress.sentencesDone / todayProgress.goal.sentences) * 100) : 0
+        const itemPct = todayProgress.goal.items > 0 ? Math.min(100, (todayProgress.itemsReviewed / todayProgress.goal.items) * 100) : 0
+        const totalPct = Math.round((sentPct + itemPct) / 2)
+        const strokeW = 6
+        const r = 36
+        const circ = 2 * Math.PI * r
+        const sentOffset = circ - (sentPct / 100) * circ
+        const itemOffset = circ - (itemPct / 100) * circ
+        return (
+          <div className="card p-4 flex items-center gap-5 flex-wrap justify-center">
+            <div className="flex items-center gap-4">
+              <svg width="80" height="80" className="flex-shrink-0">
+                <circle cx="40" cy="40" r={r} fill="none" stroke="currentColor" strokeWidth={strokeW} className="text-cream-200 dark:text-ink-700" />
+                <circle cx="40" cy="40" r={r} fill="none" stroke="currentColor" strokeWidth={strokeW} strokeLinecap="round"
+                  className="text-amber-400 dark:text-amber-500"
+                  strokeDasharray={circ} strokeDashoffset={sentOffset}
+                  transform="rotate(-90 40 40)" />
+                <text x="40" y="37" textAnchor="middle" className="fill-ink-800 dark:fill-cream-100 text-sm font-bold" fontSize="14">{todayProgress.sentencesDone}/{todayProgress.goal.sentences}</text>
+                <text x="40" y="53" textAnchor="middle" className="fill-ink-400 dark:fill-ink-500" fontSize="9">翻译句</text>
+              </svg>
+              <svg width="80" height="80" className="flex-shrink-0">
+                <circle cx="40" cy="40" r={r} fill="none" stroke="currentColor" strokeWidth={strokeW} className="text-cream-200 dark:text-ink-700" />
+                <circle cx="40" cy="40" r={r} fill="none" stroke="currentColor" strokeWidth={strokeW} strokeLinecap="round"
+                  className="text-blue-400 dark:text-blue-500"
+                  strokeDasharray={circ} strokeDashoffset={itemOffset}
+                  transform="rotate(-90 40 40)" />
+                <text x="40" y="37" textAnchor="middle" className="fill-ink-800 dark:fill-cream-100 text-sm font-bold" fontSize="14">{todayProgress.itemsReviewed}/{todayProgress.goal.items}</text>
+                <text x="40" y="53" textAnchor="middle" className="fill-ink-400 dark:fill-ink-500" fontSize="9">记忆项</text>
+              </svg>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="text-sm font-bold text-ink-800 dark:text-cream-100 mb-1">今日目标</div>
+              <div className={`text-xl font-bold ${totalPct >= 100 ? 'text-green-500' : totalPct >= 50 ? 'text-amber-500' : 'text-ink-400 dark:text-ink-500'}`}>
+                {totalPct >= 100 ? '🎉 已完成' : `${totalPct}%`}
+              </div>
+              <div className="text-[11px] text-ink-400 dark:text-ink-500 mt-1">
+                {totalPct >= 100 ? '太棒了！继续保持' : totalPct >= 50 ? '不错，继续加油' : '今天还没开始练习哦'}
+              </div>
+            </div>
+          </div>
+        )
+      })()}
+
       {/* Daily recommendation + Topic progress */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {todayPassage && (
@@ -144,6 +266,7 @@ export default function HomePage({ appData, onNavigate }) {
             <p className="text-sm text-ink-600 dark:text-ink-300 mb-1">{todayPassage.title}</p>
             <div className="flex items-center gap-2 mb-3">
               <span className="tag bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 text-[11px]">{todayPassage.topic}</span>
+              <SourceBadge passage={todayPassage} className="text-[10px]" />
               <span className="text-xs text-ink-400">{todayPassage.year} · {todayPassage.sentences.length}句</span>
               <span className="text-[10px] text-ink-300">{'★'.repeat(todayPassage.difficulty)}</span>
             </div>
@@ -180,6 +303,23 @@ export default function HomePage({ appData, onNavigate }) {
           <BookOpen size={16} className="text-amber-500" />
           学习方法论
         </h3>
+
+        <AccordionSection title={scoringPriority.title} subtitle={scoringPriority.subtitle} defaultOpen>
+          <div className="space-y-2">
+            {scoringPriority.levels.map((level, i) => (
+              <div key={i} className="flex items-start gap-2 bg-cream-50 dark:bg-ink-900 rounded-lg p-2.5">
+                <span className="w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 flex items-center justify-center text-[10px] font-bold flex-shrink-0">{i + 1}</span>
+                <div>
+                  <div className="text-xs font-bold text-ink-700 dark:text-cream-200">{level.name}</div>
+                  <div className="text-[11px] text-ink-500 dark:text-ink-400 leading-relaxed mt-0.5">{level.detail}</div>
+                </div>
+              </div>
+            ))}
+            <div className="text-[11px] text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 rounded-lg px-3 py-2 font-medium">
+              {scoringPriority.rule}
+            </div>
+          </div>
+        </AccordionSection>
 
         <AccordionSection title={translationSteps.title} subtitle={translationSteps.subtitle}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -221,6 +361,11 @@ export default function HomePage({ appData, onNavigate }) {
         </AccordionSection>
 
         <AccordionSection title={highScoreStructures.title} subtitle={highScoreStructures.subtitle}>
+          {highScoreStructures.caution && (
+            <div className="text-[11px] text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 rounded-lg px-3 py-2 mb-3 leading-relaxed">
+              {highScoreStructures.caution}
+            </div>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {highScoreStructures.structures.map(s => (
               <div key={s.id} className="bg-green-50 dark:bg-green-500/5 rounded-xl p-3 border border-green-200 dark:border-green-500/20">
@@ -243,6 +388,8 @@ export default function HomePage({ appData, onNavigate }) {
         <span><kbd className="px-1.5 py-0.5 rounded bg-cream-200 dark:bg-ink-700 font-mono text-[10px]">1-4</kbd> 评分</span>
         <span><kbd className="px-1.5 py-0.5 rounded bg-cream-200 dark:bg-ink-700 font-mono text-[10px]">?</kbd> 全部快捷键</span>
       </div>
+
+      <SiteFooter />
     </div>
   )
 }

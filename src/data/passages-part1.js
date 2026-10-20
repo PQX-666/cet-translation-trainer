@@ -4,6 +4,7 @@ export const passagesPart1 = [
   // p1. 绿色经济 (2025.12)
   {
     id: 'p1',
+    level: 'CET-6',
     title: '绿色经济',
     year: '2025.12',
     topic: '生态环境',
@@ -27,7 +28,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 attaches great importance to → values highly / pays close attention to / prioritizes',
           sentencePattern: '\'A十分重视B的发展\' → \'A attaches great importance to the development of B\'',
-          highScore: { en: '', note: 'attaches great importance to 表达正式到位' },
+          highScore: { en: 'The Chinese government attaches great importance to the development of the green economy.', note: 'attaches great importance to 表达正式到位' },
           lowScore: { en: '', note: 'thinks...is very important 不如 attaches great importance to 简洁正式。评分 10-12 分档。' }
         }
       },
@@ -48,7 +49,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 intensify → strengthen / step up / increase；不会 significantly → remarkably / notably / greatly；不会 ecological environment → natural environment / ecosystem',
           sentencePattern: '\'通过加强A保护、加大B力度等一系列措施，C得到了显著改善\' → \'Through a series of measures such as strengthening A protection and intensifying B efforts, C has been significantly improved\'',
-          highScore: { en: '', note: 'Through + such as + strengthening/intensifying + has been significantly improved 层层递进' },
+          highScore: { en: 'Through a series of measures such as strengthening forest resource protection and intensifying pollution control efforts, the ecological environment in many regions has been significantly improved.', note: 'Through + such as + strengthening/intensifying + has been significantly improved 层层递进' },
           lowScore: { en: '', note: 'By...actions 不如 Through...measures + making...stronger 不如 strengthening + places\' 不如 regions\' + become much better 不如 been significantly improved。评分 8-10 分档。' }
         }
       },
@@ -68,7 +69,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 Lucid waters and lush mountains → clean rivers and green mountains / clear waters and green hills；不会 considerable → significant / substantial / sizeable',
           sentencePattern: '\'绿水青山促进了A等产业的发展，创造了可观的B\' → \'Lucid waters and lush mountains have promoted the development of A and other industries, creating considerable B\'',
-          highScore: { en: '', note: 'Lucid waters and lush mountains + creating 分词 地道' },
+          highScore: { en: 'Lucid waters and lush mountains have promoted the development of local tourism, health, and other industries, creating considerable economic benefits.', note: 'Lucid waters and lush mountains + creating 分词 地道' },
           lowScore: { en: '', note: 'Green water/green mountains 重复 green + travel 不如 tourism + made...results 不如 creating...benefits。评分 8-10 分档。' }
         }
       },
@@ -88,7 +89,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 harmonious coexistence → living together peacefully / harmony between；不会 taken root → been widely accepted / been deeply rooted / been established',
           sentencePattern: '\'如今，A与B和谐共存的观念在中国已深入人心\' → \'Today, the concept of harmonious coexistence between A and B has taken root in China\'',
-          highScore: { en: '', note: 'harmonious coexistence + has taken root 表达精准' },
+          highScore: { en: 'Today, the concept of harmonious coexistence between the ecological environment and human society has taken root in China.', note: 'harmonious coexistence + has taken root 表达精准' },
           lowScore: { en: '', note: 'environment 不如 ecological environment + live together peacefully 不如 harmonious coexistence + popular 不如 taken root。评分 8-10 分档。' }
         }
       },
@@ -107,9 +108,9 @@ export const passagesPart1 = [
           structureAnalysis: '(The advancement of the green economy) → can → not only contribute to (China\'s sustainable development) → but also provide (valuable experience) → for (global environmental protection)',
           whyGood: '① 名词化主语 The advancement of 比动名词更正式 ② not only...but also 对应\'不仅...也\' ③ sustainable development 标准术语 ④ valuable experience 精准表达\'宝贵经验\'。',
           keyVocab: ['', '', ''],
-          substitutionGuide: '不会 advancement → promotion / progress / push forward；不会 sustainable development → lasting development / green growth；不会 valuable experience → precious lessons / useful reference',
+          substitutionGuide: '不会 advancement → promotion / progress / further development；不会 sustainable development → lasting development / green growth；不会 valuable experience → precious lessons / useful reference',
           sentencePattern: '\'A的推进不仅能为B做出贡献，也为C提供了宝贵经验\' → \'The advancement of A can not only contribute to B but also provide valuable experience for C\'',
-          highScore: { en: '', note: '名词化主语 + not only...but also + sustainable development + valuable experience 表达高级' },
+          highScore: { en: 'The advancement of the green economy can not only contribute to China\'s sustainable development but also provide valuable experience for global environmental protection.', note: '名词化主语 + not only...but also + sustainable development + valuable experience 表达高级' },
           lowScore: { en: '', note: 'Pushing forward 不如 The advancement + help 不如 contribute to + growth 不如 development + give 不如 provide。评分 8-10 分档。' }
         }
       }
@@ -118,6 +119,7 @@ export const passagesPart1 = [
   // p2. 民营经济 (2025.12)
   {
     id: 'p2',
+    level: 'CET-6',
     title: '民营经济',
     year: '2025.12',
     topic: '经济发展',
@@ -142,7 +144,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 attach importance to → pay attention to / value / prioritize；不会 introduce → launch / roll out / implement；不会 private enterprise → private company / private business / privately-run firm',
           sentencePattern: '\'近年来，A高度重视B的发展，出台了一系列政策支持C\' → \'In recent years, A has attached great importance to the development of B and has introduced a series of policies to support C\'',
-          highScore: { en: '', note: 'attached great importance + introduced policies + to support 目的清晰' },
+          highScore: { en: 'In recent years, the Chinese government has attached great importance to the development of the private economy and has introduced a series of policies to support private enterprises.', note: 'attached great importance + introduced policies + to support 目的清晰' },
           lowScore: { en: '', note: 'thinks...is very important 不如 attaches great importance to + rules 不如 policies + help 不如 support。评分 8-10 分档。' }
         }
       },
@@ -163,7 +165,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 By the end of → As of the end of / By late / Up to；不会 exceeded → went over / surpassed / reached more than；不会 accounting for → making up / representing / comprising',
           sentencePattern: '\'截至Y年M月底，A数量超过B，占C的X%\' → \'By the end of M Y, the number of A had exceeded B, accounting for X% of C\'',
-          highScore: { en: '', note: 'By + had exceeded + accounting for 全面精准' },
+          highScore: { en: 'By the end of March 2025, the number of private enterprises nationwide had exceeded 57 million, accounting for 92.3% of the total number of enterprises.', note: 'By + had exceeded + accounting for 全面精准' },
           lowScore: { en: '', note: 'Until 不如 By + were more than 不如 had exceeded + which is 不如 accounting for。评分 9-11 分档。' }
         }
       },
@@ -174,7 +176,7 @@ export const passagesPart1 = [
         annotations: [
           { fragment: 'Not only has...grown', type: 'structure', label: 'Not only 倒装', detail: 'Not only 置句首需要部分倒装：Not only has the number...grown。这是高级句式。' },
           { fragment: 'steadily', type: 'vocab', label: '稳步', detail: 'steadily = 稳步地/稳定地。比 slowly 或 gradually 更能表达\'稳中有进\'。' },
-          { fragment: 'have been continuously improving', type: 'structure', label: '一直在不断提升', detail: '现在完成进行时 have been improving 表达从过去持续到现在的提升过程。continuously = 不断地。' }
+          { fragment: 'have also been continuously improving', type: 'structure', label: '一直在不断提升', detail: '现在完成进行时 have been improving 表达从过去持续到现在的提升过程。continuously = 不断地。' }
         ],
         technique: {
           difficulty: 3,
@@ -184,7 +186,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 Not only has...grown → Not only the number has grown（缺倒装）→ The number has not only grown（更安全）；不会 steadily → stably / gradually / progressively',
           sentencePattern: '\'A不仅B稳步增长，C和D也在不断提升\' → \'Not only has B grown steadily, but C and D have also been continuously improving\'',
-          highScore: { en: '', note: 'Not only 倒装 + 现在完成进行时 高级表达' },
+          highScore: { en: 'Not only has the number of private enterprises grown steadily, but their quality and structure have also been continuously improving.', note: 'Not only 倒装 + 现在完成进行时 高级表达' },
           lowScore: { en: '', note: 'increased 不如 grown + are getting better 不如 have been continuously improving。评分 8-10 分档。' }
         }
       },
@@ -205,7 +207,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 R&D → research and development / innovation spending；不会 new generation → next-generation / latest；不会 rapidly → quickly / fast / at a rapid pace',
           sentencePattern: '\'A的B不断增加，在C、D等领域发展迅速\' → \'The B of A has been increasing, and they have been developing rapidly in fields such as C and D\'',
-          highScore: { en: '', note: 'R&D + has been increasing + such as 领域列举 准确' },
+          highScore: { en: 'The R&D investment of private enterprises has been increasing, and they have been developing rapidly in fields such as the new generation of information technology and artificial intelligence.', note: 'R&D + has been increasing + such as 领域列举 准确' },
           lowScore: { en: '', note: 'spending more money 不如 R&D investment has been increasing + growing very fast 不如 developing rapidly。评分 8-10 分档。' }
         }
       },
@@ -226,7 +228,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 core competitiveness → main competitive advantage / key competitive power；不会 strong support → firm backing / solid foundation / powerful support；不会 high-quality development → quality growth / superior development',
           sentencePattern: '\'A的增强为B的高质量发展提供了有力支撑\' → \'The enhanced A has provided strong support for the high-quality development of B\'',
-          highScore: { en: '', note: 'enhanced + core competitiveness + strong support + high-quality development 词汇丰富' },
+          highScore: { en: 'The enhanced core competitiveness of private enterprises has provided strong support for the high-quality development of China\'s economy.', note: 'enhanced + core competitiveness + strong support + high-quality development 词汇丰富' },
           lowScore: { en: '', note: 'stronger 不如 enhanced + competing ability 不如 competitiveness + given 不如 provided + good 不如 high-quality。评分 8-10 分档。' }
         }
       }
@@ -235,6 +237,7 @@ export const passagesPart1 = [
   // p3. 城市漫步 (2025.12)
   {
     id: 'p3',
+    level: 'CET-4',
     title: '城市漫步',
     year: '2025.12',
     topic: '社会生活',
@@ -258,7 +261,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 quietly emerged → silently appeared / quietly risen / become popular quietly；不会 trend → fashion / wave / craze',
           sentencePattern: '\'近年来，A在B中悄然兴起，已成为一种C新潮流\' → \'In recent years, A have quietly emerged among B and have become a new C trend\'',
-          highScore: { en: '', note: 'quietly emerged + new tourism trend 表达地道' },
+          highScore: { en: 'In recent years, "city walks" have quietly emerged among young people in China and have become a new tourism trend.', note: 'quietly emerged + new tourism trend 表达地道' },
           lowScore: { en: '', note: 'become popular quietly 语序不好 + 拆句 + fashion 不如 trend。评分 9-11 分档。' }
         }
       },
@@ -279,7 +282,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 Unlike → Different from / Compared with / In contrast to；不会 pursue → chase after / seek / go after；不会 stroll → walk leisurely / wander / ramble；不会 scenic spots → tourist attractions / sights / landmarks',
           sentencePattern: '\'与A不同，B不追求在短时间内C，而是D或E\' → \'Unlike A, B do not pursue C within a short time. Instead, they involve D or E\'',
-          highScore: { en: '', note: 'Unlike + pursue visiting + strolling casually + streets and alleys 词汇丰富' },
+          highScore: { en: 'Unlike traditional tourism, city walks do not pursue visiting as many scenic spots as possible within a short time. Instead, they involve strolling casually or following themed routes through the streets and alleys of a city.', note: 'Unlike + pursue visiting + strolling casually + streets and alleys 词汇丰富' },
           lowScore: { en: '', note: 'old-style 不如 traditional + try to see 不如 pursue visiting + carelessly 不如 casually + streets 缺少 alleys。评分 8-10 分档。' }
         }
       },
@@ -300,7 +303,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 sample → taste / try / eat；不会 authentic → genuine / real / traditional；不会 distinctive → characteristic / unique / special',
           sentencePattern: '\'A品尝B，欣赏C，了解D\' → \'A sample B, admire C, and learn about D\'',
-          highScore: { en: '', note: 'sample + authentic + admire + way of life 用词精准' },
+          highScore: { en: 'City walkers sample authentic local snacks, admire distinctive architecture, and learn about the local way of life.', note: 'sample + authentic + admire + way of life 用词精准' },
           lowScore: { en: '', note: 'eat 不如 sample + look at 不如 admire + special 不如 distinctive + how people live 不如 way of life。评分 9-11 分档。' }
         }
       },
@@ -320,7 +323,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 capture → record / photograph / take pictures of；不会 scenery → landscape / views / sights',
           sentencePattern: '\'A还用B或C记录D的E和F\' → \'A also use B or C to capture the E and F of D\'',
-          highScore: { en: '', note: 'use...to capture + scenery 表达生动' },
+          highScore: { en: 'They also use cameras or mobile phones to capture the city\'s scenery and people.', note: 'use...to capture + scenery 表达生动' },
           lowScore: { en: '', note: 'take photos of 不如 capture + views 不如 scenery。评分 11-13 分档。' }
         }
       },
@@ -340,7 +343,7 @@ export const passagesPart1 = [
           keyVocab: [''],
           substitutionGuide: '不会 allows...to → makes it possible for...to / lets... / enables...to；不会 gain a deeper understanding → understand more deeply / learn more about / better appreciate',
           sentencePattern: '\'这种A能让B更深入了解C的D\' → \'This A allows B to gain a deeper understanding of the D of C\'',
-          highScore: { en: '', note: 'allows...to gain a deeper understanding of 表达地道' },
+          highScore: { en: 'This travel style allows city walkers to gain a deeper understanding of a city\'s history and culture.', note: 'allows...to gain a deeper understanding of 表达地道' },
           lowScore: { en: '', note: 'way of traveling 不如 travel style + let 不如 allow + know more about 不如 gain a deeper understanding of。评分 9-11 分档。' }
         }
       }
@@ -349,6 +352,7 @@ export const passagesPart1 = [
   // p4. 杂交水稻 (2025.6)
   {
     id: 'p4',
+    level: 'CET-4',
     title: '杂交水稻',
     year: '2025.6',
     topic: '科技成就',
@@ -373,7 +377,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 known as → called / named / referred to as；不会 overcame → conquered / got over / surmounted；不会 hybrid → crossbred / mixed',
           sentencePattern: '\'被誉为A的B和C克服D，研发出了E\' → \'B, known as A, and C overcame D to develop E\'',
-          highScore: { en: '', note: 'known as 插入 + overcame...to develop 紧凑' },
+          highScore: { en: 'Yuan Longping, known as the "Father of Hybrid Rice," and his research team overcame numerous difficulties to develop a type of super hybrid rice.', note: 'known as 插入 + overcame...to develop 紧凑' },
           lowScore: { en: '', note: 'is called 不如 known as + beat 不如 overcame + made 不如 developed。评分 9-11 分档。' }
         }
       },
@@ -393,7 +397,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 enormous → huge / great / tremendous；不会 recognized worldwide → globally recognized / acknowledged around the world / internationally acclaimed',
           sentencePattern: '\'这项技术获得了举世公认的巨大成功\' → \'This technology has achieved enormous success recognized worldwide\'',
-          highScore: { en: '', note: 'has achieved + recognized worldwide 后置定语精准' },
+          highScore: { en: 'This technology has achieved enormous success recognized worldwide.', note: 'has achieved + recognized worldwide 后置定语精准' },
           lowScore: { en: '', note: 'got 不如 achieved + very big 不如 enormous + recognized by the whole world 冗余。评分 10-12 分档。' }
         }
       },
@@ -414,7 +418,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 application → use / implementation / adoption；不会 resistant to → able to withstand / tolerant of / immune to；不会 yield → output / production / harvest',
           sentencePattern: '\'通过这项技术的应用，A能力更强，能适应B，产量可提高C%\' → \'Through the application of this technology, A has become more resistant to..., can adapt to B, and its yield can increase by C%\'',
-          highScore: { en: '', note: 'Through + resistant to + adapt to + increase by 词汇丰富' },
+          highScore: { en: 'Through the application of this technology, rice has become more resistant to drought and disease, can adapt to different climate and soil conditions, and its yield can increase by 20% to 30%.', note: 'Through + resistant to + adapt to + increase by 词汇丰富' },
           lowScore: { en: '', note: 'By using 不如 Through the application + fight against 不如 resistant to + go up 不如 increase。评分 8-10 分档。' }
         }
       },
@@ -434,7 +438,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 rich in nutrients → nutritious / full of nutrition / packed with nutrients；不会 better taste → tastes better / improved flavor / more delicious',
           sentencePattern: '\'XX营养丰富，口感更佳\' → \'XX is rich in nutrients and has a better taste\'',
-          highScore: { en: '', note: 'is rich in + has a better taste 简洁到位' },
+          highScore: { en: 'Super hybrid rice is rich in nutrients and has a better taste.', note: 'is rich in + has a better taste 简洁到位' },
           lowScore: { en: '', note: 'has a lot of nutrition 不如 is rich in nutrients + tastes better 不如 has a better taste。评分 11-13 分档。' }
         }
       },
@@ -455,7 +459,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 widely applied → widely used / extensively adopted；不会 food security → food supply safety / grain security；不会 significant → important / major / great',
           sentencePattern: '\'目前，A已经在B得到广泛应用，为C做出了重大贡献\' → \'At present, A has been widely applied in B, making significant contributions to C\'',
-          highScore: { en: '', note: 'has been widely applied + making contributions 表达地道' },
+          highScore: { en: 'At present, this technology has been widely applied in many countries, making significant contributions to global food security.', note: 'has been widely applied + making contributions 表达地道' },
           lowScore: { en: '', note: 'is used 不如 has been applied + given big help 不如 made significant contributions + food safety 不如 food security。评分 8-10 分档。' }
         }
       }
@@ -464,9 +468,10 @@ export const passagesPart1 = [
   // p5. 冰雪大世界 (2025.6)
   {
     id: 'p5',
+    level: 'CET-4',
     title: '冰雪大世界',
     year: '2025.6',
-    topic: '旅游文化',
+    topic: '社会生活',
     difficulty: 1,
     fullCN: '近年来，中国东北地区正在大力发展冰雪资源，例如哈尔滨利用丰富的冰雪资源，打造了独具特色的冰雪大世界，让游客在欣赏冰雪之美的同时也能体验当地独特的民俗文化。如今，曾经令人畏惧的冰天雪地正吸引着四面八方的游客，成为了深受欢迎的旅游胜地，冰雪资源也为当地的经济发展做出越来越大的贡献。',
     fullEN: 'In recent years, Northeast China has been vigorously developing its ice and snow resources. For example, Harbin has utilized its abundant ice and snow resources to create the unique Ice and Snow World, allowing visitors to experience the local distinctive folk culture while enjoying the beauty of ice and snow. Today, the once-dreaded world of ice and snow is attracting visitors from all directions, becoming a popular tourist destination, and ice and snow resources are making increasingly greater contributions to the local economic development.',
@@ -485,9 +490,9 @@ export const passagesPart1 = [
           structureAnalysis: '(In recent years) → Northeast China → has been vigorously developing → (its ice and snow resources)',
           whyGood: '① In recent years + 现在完成进行时 表达近年来的持续趋势 ② vigorously 精准表达\'大力\'的力度。',
           keyVocab: ['', ''],
-          substitutionGuide: '不会 vigorously → actively / energetically / strongly；不会 ice and snow resources → winter tourism resources / frozen assets',
+          substitutionGuide: '不会 vigorously → actively / energetically / strongly；不会 ice and snow resources → snow and ice resources / winter tourism resources',
           sentencePattern: '\'近年来，A正在大力发展B\' → \'In recent years, A has been vigorously developing B\'',
-          highScore: { en: '', note: 'has been vigorously developing 时态和副词都精准' },
+          highScore: { en: 'In recent years, Northeast China has been vigorously developing its ice and snow resources.', note: 'has been vigorously developing 时态和副词都精准' },
           lowScore: { en: '', note: 'northeast part 不如 Northeast China + strongly 不如 vigorously + things 不如 resources。评分 9-11 分档。' }
         }
       },
@@ -508,7 +513,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 utilized → used / made use of / tapped into；不会 allowing...to...while → letting...do...at the same time；不会 distinctive → unique / special / characteristic',
           sentencePattern: '\'例如A利用B打造了C，让D在欣赏E的同时也能体验F\' → \'For example, A has utilized B to create C, allowing D to experience F while enjoying E\'',
-          highScore: { en: '', note: 'utilized...to create + allowing...to...while enjoying 嵌套合理' },
+          highScore: { en: 'For example, Harbin has utilized its abundant ice and snow resources to create the unique Ice and Snow World, allowing visitors to experience the local distinctive folk culture while enjoying the beauty of ice and snow.', note: 'utilized...to create + allowing...to...while enjoying 嵌套合理' },
           lowScore: { en: '', note: 'used 不如 utilized + build 不如 create + 拆句 + feel the culture 不如 experience。评分 8-10 分档。' }
         }
       },
@@ -529,7 +534,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 once-dreaded → once-feared / previously scary；不会 from all directions → from everywhere / far and wide / from near and far；不会 tourist destination → tourist spot / scenic spot / travel destination',
           sentencePattern: '\'如今，曾经令人畏惧的A正吸引着四面八方的B，成为了深受欢迎的C\' → \'Today, the once-dreaded A is attracting B from all directions, becoming a popular C\'',
-          highScore: { en: '', note: 'once-dreaded + from all directions + becoming 表达生动' },
+          highScore: { en: 'Today, the once-dreaded world of ice and snow is attracting visitors from all directions, becoming a popular tourist destination.', note: 'once-dreaded + from all directions + becoming 表达生动' },
           lowScore: { en: '', note: 'that people were afraid of 啰嗦 + bringing 不如 attracting + place for travel 不如 tourist destination。评分 9-11 分档。' }
         }
       },
@@ -548,7 +553,7 @@ export const passagesPart1 = [
           keyVocab: [''],
           substitutionGuide: '不会 increasingly greater → bigger and bigger / more and more significant / ever-growing；不会 make contributions → contribute / help / support',
           sentencePattern: '\'A也为B做出越来越大的贡献\' → \'A are making increasingly greater contributions to B\'',
-          highScore: { en: '', note: 'increasingly greater contributions 表达精准' },
+          highScore: { en: 'Ice and snow resources are making increasingly greater contributions to the local economic development.', note: 'increasingly greater contributions 表达精准' },
           lowScore: { en: '', note: 'helping 不如 making contributions + more and more 不如 increasingly greater + economy 不如 economic development。评分 10-12 分档。' }
         }
       }
@@ -557,6 +562,7 @@ export const passagesPart1 = [
   // p6. 15分钟便民生活圈 (2025.6)
   {
     id: 'p6',
+    level: 'CET-4',
     title: '15分钟便民生活圈',
     year: '2025.6',
     topic: '社会民生',
@@ -581,7 +587,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 an increasing number of → more and more / a growing number of；不会 committed to → dedicated to / devoted to / working on',
           sentencePattern: '\'近年来，越来越多的A致力打造B\' → \'In recent years, an increasing number of A have been committed to building B\'',
-          highScore: { en: '', note: 'an increasing number of + committed to building 准确' },
+          highScore: { en: 'In recent years, an increasing number of Chinese cities have been committed to building "15-minute convenient living circles."', note: 'an increasing number of + committed to building 准确' },
           lowScore: { en: '', note: 'These years 不如 In recent years + working hard to make 不如 committed to building + easy-life 自创词。评分 8-10 分档。' }
         }
       },
@@ -602,7 +608,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 access → get / obtain / reach / enjoy；不会 within a 15-minute walk → within walking distance of 15 minutes / in 15 minutes\' walk',
           sentencePattern: '\'生活在A里的B可以在C范围内获得D\' → \'B living in A can access D within C\'',
-          highScore: { en: '', note: 'living in + access + within a 15-minute walk 表达地道' },
+          highScore: { en: 'Residents living in these convenient living circles can access public services within a 15-minute walk.', note: 'living in + access + within a 15-minute walk 表达地道' },
           lowScore: { en: '', note: 'who live 不如 living + get 不如 access + by walking 不如 within a walk。评分 9-11 分档。' }
         }
       },
@@ -623,7 +629,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 equipped with → have / are fitted with / provide；不会 canteen → dining hall / cafeteria / mess hall；不会 clinic → health center / medical station',
           sentencePattern: '\'A配备B、C、D、E、F、G和H等\' → \'A are equipped with B, C, D, E, F, G, and H\'',
-          highScore: { en: '', note: 'be equipped with + 七项罗列完整' },
+          highScore: { en: 'These living circles are equipped with convenience stores, parks, fitness facilities, libraries, schools, community canteens, and clinics.', note: 'be equipped with + 七项罗列完整' },
           lowScore: { en: '', note: 'have 不如 are equipped with + exercise things 不如 fitness facilities + eating places 不如 canteens + small hospitals 不如 clinics。评分 8-10 分档。' }
         }
       },
@@ -644,7 +650,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 The establishment of → Building / Creating / Setting up；不会 pleasant → enjoyable / agreeable / nice；不会 well-being → happiness / welfare / health and happiness',
           sentencePattern: '\'建立A有助于为B提供C，更好地满足D，提高E和F\' → \'The establishment of A helps provide B with C, better meet D, and improve E and F\'',
-          highScore: { en: '', note: '名词化主语 + 三个不定式并列 + well-being 表达高级' },
+          highScore: { en: 'The establishment of such living circles helps provide residents with a more convenient, comfortable, friendly, and pleasant living environment, better meet the diverse needs of urban residents, and improve their quality of life and sense of well-being.', note: '名词化主语 + 三个不定式并列 + well-being 表达高级' },
           lowScore: { en: '', note: 'Building 不如 establishment + give 不如 provide + nice 不如 pleasant + city people 不如 urban residents + happiness 不如 well-being。评分 8-10 分档。' }
         }
       }
@@ -653,6 +659,7 @@ export const passagesPart1 = [
   // p7. 新质生产力 (2024.6)
   {
     id: 'p7',
+    level: 'CET-6',
     title: '新质生产力',
     year: '2024.6',
     topic: '经济发展',
@@ -675,7 +682,7 @@ export const passagesPart1 = [
           structureAnalysis: '主干为"...forces are a...form"，driven by... 作后置定语修饰 form',
           whyGood: '用 driven by 过去分词短语作后置定语，避免了冗长的定语从句，使定义类句子简洁有力。',
           keyVocab: ['new quality productive forces', 'scientific and technological innovation', 'advanced form', 'driven by', 'at the core'],
-          substitutionGuide: '"生产力形态"也可译作 productive forces form；"核心驱动力"还可用 core engine 或 primary driver',
+          substitutionGuide: '"生产力形态"也可译作 form of productive forces；"核心驱动力"还可用 core engine 或 primary driver',
           sentencePattern: 'A is/are an advanced form of B driven by C at its/their core.',
           highScore: { en: 'New quality productive forces are an advanced form of productivity driven by scientific and technological innovation at their core.', note: '使用 driven by 分词短语和 at their core 介词短语，层次分明' },
           lowScore: { en: 'New quality productive forces is a kind of advanced productivity. Its core driving force is technology innovation.', note: '拆成两个简单句丢失了定义句的紧凑感，a kind of 过于口语化' }
@@ -687,7 +694,7 @@ export const passagesPart1 = [
         en: 'They emphasize using disruptive and cutting-edge technologies to foster new industries, new models, and new growth drivers.',
         annotations: [
           { fragment: 'disruptive and cutting-edge technologies', type: 'vocab', label: '并列形容词', detail: 'disruptive指破坏式创新的"颠覆性"，cutting-edge指"前沿的"，两词适用不同语境' },
-          { fragment: 'foster new industries, new models, and new growth drivers', type: 'grammar', label: '三项排比', detail: '"催生"用 foster，三个"新..."构成排比，growth drivers 比 momentums 更符合经济学术语' }
+          { fragment: 'foster new industries, new models, and new growth drivers', type: 'grammar', label: '三项排比', detail: '"催生"用 foster，三个"新..."构成排比，growth drivers 比 new momentum 更符合经济学术语' }
         ],
         technique: {
           difficulty: 3,
@@ -695,10 +702,10 @@ export const passagesPart1 = [
           structureAnalysis: 'They emphasize using... 动名词作宾语，to foster... 不定式表目的，三个 new + N 排比',
           whyGood: 'emphasize using 比 emphasize to use 更地道，三并列名词保留原文节奏感。',
           keyVocab: ['disruptive', 'cutting-edge', 'foster', 'growth drivers', 'industries', 'models'],
-          substitutionGuide: '"催生"还可译为 give birth to / generate / spawn；"新动能"还可译 new momentums',
+          substitutionGuide: '"催生"还可译为 give birth to / generate / spawn；"新动能"还可译 new momentum（不可数）',
           sentencePattern: 'A emphasizes using B and C to foster X, Y, and Z.',
           highScore: { en: 'They emphasize using disruptive and cutting-edge technologies to foster new industries, new models, and new growth drivers.', note: '三项排比简洁有力，foster 准确传达"培育催生"之意' },
-          lowScore: { en: 'It emphasizes that we should use disruptive technologies to create new industries, new models and new momentums.', note: 'emphasize that we should 冗余，create 不足以表达培育之义' }
+          lowScore: { en: 'It emphasizes that we should use disruptive technologies to create new industries, new models and new momentum.', note: 'emphasize that we should 冗余，create 不足以表达培育之义' }
         }
       },
       {
@@ -739,7 +746,7 @@ export const passagesPart1 = [
           keyVocab: ['accelerating', 'deployment', 'artificial intelligence', 'quantum information', 'biomanufacturing', 'solid foundation'],
           substitutionGuide: '"布局"还可译 layout / planning / arrangement；"奠定基础"还可译 build a foundation / pave the way',
           sentencePattern: 'Currently, A is accelerating B in C such as X, Y, and Z, laying a solid foundation for D.',
-          highScore: { en: 'Currently, China is accelerating its deployment in future industries such as AI, quantum information, and biomanufacturing, laying a solid foundation for...', note: 'such as列举+分词结果状语，多信息融合在一个长句中' },
+          highScore: { en: 'At present, China is stepping up its layout in future industries such as artificial intelligence, quantum information, and biomanufacturing, thereby laying a solid foundation for cultivating new quality productive forces.', note: 'such as列举+分词结果状语，多信息融合在一个长句中' },
           lowScore: { en: 'Now China is making plans in AI, quantum information and biomanufacturing. This can build a solid foundation for new quality productive forces.', note: '拆成两个简单句切断因果逻辑，making plans 太过口语化' }
         }
       },
@@ -768,6 +775,7 @@ export const passagesPart1 = [
   // p8. 一带一路倡议 (2024.6)
   {
     id: 'p8',
+    level: 'CET-6',
     title: '一带一路倡议',
     year: '2024.6',
     topic: '经济发展',
@@ -799,9 +807,9 @@ export const passagesPart1 = [
       {
         id: 'p8s2',
         cn: '它秉持共商共建共享原则，致力于实现沿线国家的政策沟通、设施联通、贸易畅通、资金融通、民心相通。',
-        en: 'Adhering to the principle of extensive consultation and joint contribution for shared benefit, it is committed to achieving policy coordination, infrastructure connectivity, unimpeded trade, financial integration, and people-to-people bonds among participating countries.',
+        en: 'Adhering to the principle of extensive consultation, joint contribution and shared benefits, it is committed to achieving policy coordination, infrastructure connectivity, unimpeded trade, financial integration, and people-to-people bonds among countries along the Belt and Road.',
         annotations: [
-          { fragment: 'extensive consultation and joint contribution for shared benefit', type: 'term', label: '官方译法', detail: '"共商共建共享"的正式译法，三词各有对应：共商=consultation，共建=contribution，共享=shared benefit' },
+          { fragment: 'extensive consultation, joint contribution and shared benefits', type: 'term', label: '官方译法', detail: '"共商共建共享"的官方译法：共商=extensive consultation，共建=joint contribution，共享=shared benefits（注意 benefits 用复数）' },
           { fragment: 'policy coordination, infrastructure connectivity, unimpeded trade, financial integration, and people-to-people bonds', type: 'term', label: '五通译法', detail: '"五通"各有固定译法，connectivity/integration/bonds 不可随意替换' }
         ],
         technique: {
@@ -812,7 +820,7 @@ export const passagesPart1 = [
           keyVocab: ['adhering to', 'extensive consultation', 'joint contribution', 'shared benefit', 'policy coordination', 'infrastructure connectivity', 'unimpeded trade', 'financial integration', 'people-to-people bonds'],
           substitutionGuide: '"秉持"还可译 uphold / follow；"实现"可译 realize / deliver',
           sentencePattern: 'Adhering to the principle of A, B, and C, it is committed to achieving D, E, F, G, and H.',
-          highScore: { en: 'Adhering to the principle of extensive consultation and joint contribution for shared benefit, it is committed to achieving policy coordination, infrastructure connectivity...', note: '分词状语+五项名词排比，精准对应原文层次' },
+          highScore: { en: 'Adhering to the principle of extensive consultation, joint contribution and shared benefits, China is committed to achieving policy coordination, infrastructure connectivity, unimpeded trade, financial integration, and people-to-people bonds among countries along the Belt and Road.', note: '分词状语+五项名词排比，精准对应原文层次' },
           lowScore: { en: 'It follows the principle of discussing together, building together and sharing together. It wants to make policies coordinated, facilities connected, trade smooth...', note: '三个 together 不正式，用形容词而非名词化表达，缺乏官方文件的庄重感' }
         }
       },
@@ -860,12 +868,13 @@ export const passagesPart1 = [
   // p9. 数字经济 (2024.6)
   {
     id: 'p9',
+    level: 'CET-6',
     title: '数字经济',
     year: '2024.6',
     topic: '经济发展',
     difficulty: 2,
     fullCN: '数字经济已成为推动中国经济增长的重要力量。中国数字经济规模连续多年位居世界第二，占国内生产总值的比重不断提升。大数据、云计算和人工智能等数字技术正在深刻改变传统产业的生产方式。在线购物、数字支付和远程办公已经融入中国人的日常生活。中国正加快推进数字产业化和产业数字化，致力于建设数字中国。',
-    fullEN: 'The digital economy has become a major force driving China\'s economic growth. The scale of China\'s digital economy has ranked second in the world for consecutive years, with its share of GDP continuously rising. Digital technologies such as big data, cloud computing, and artificial intelligence are profoundly transforming the production methods of traditional industries. Online shopping, digital payment, and remote work have been integrated into the daily lives of Chinese people. China is accelerating the digitalization of industries and the digital transformation of traditional industries, striving to build a digital China.',
+    fullEN: 'The digital economy has become a major force driving China\'s economic growth. The scale of China\'s digital economy has ranked second in the world for consecutive years, with its share of GDP continuously rising. Digital technologies such as big data, cloud computing, and artificial intelligence are profoundly transforming the production methods of traditional industries. Online shopping, digital payment, and remote work have been integrated into the daily lives of Chinese people. China is accelerating digital industrialization and industrial digitalization, striving to build a digital China.',
     sentences: [
       {
         id: 'p9-s0',
@@ -883,7 +892,7 @@ export const passagesPart1 = [
           keyVocab: ['', ''],
           substitutionGuide: '不会 major force → important power / key driver / significant force；不会 driving → pushing / propelling / fueling',
           sentencePattern: '\'A已成为推动B的重要力量\' → \'A has become a major force driving B\'',
-          highScore: { en: '', note: 'a major force driving... 表达地道' },
+          highScore: { en: 'The digital economy has become a major force driving China\'s economic growth.', note: 'a major force driving... 表达地道' },
           lowScore: { en: '', note: 'already 不必要 + power to push 不如 force driving + Digital 前缺 the。评分 10-12 分档。' }
         }
       },
@@ -904,7 +913,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 consecutive → straight / successive / in a row；不会 GDP → gross domestic product / economic output；不会 share of GDP → proportion of GDP / percentage of GDP',
           sentencePattern: '\'A规模连续多年位居世界第二，占B的比重不断提升\' → \'The scale of A has ranked second in the world for consecutive years, with its share of B continuously rising\'',
-          highScore: { en: '', note: 'has ranked second + consecutive years + with 独立主格 精准' },
+          highScore: { en: 'The scale of China\'s digital economy has ranked second in the world for consecutive years, with its share of GDP continuously rising.', note: 'has ranked second + consecutive years + with 独立主格 精准' },
           lowScore: { en: '', note: 'second biggest 不如 rank second + many years 不如 consecutive years + percentage 不如 share + keeps going up 不如 continuously rising。评分 8-10 分档。' }
         }
       },
@@ -925,7 +934,7 @@ export const passagesPart1 = [
           keyVocab: ['', '', ''],
           substitutionGuide: '不会 profoundly → deeply / significantly / dramatically；不会 production methods → ways of production / manufacturing methods；不会 traditional industries → conventional sectors / old industries',
           sentencePattern: '\'A、B和C等数字技术正在深刻改变D的生产方式\' → \'Digital technologies such as A, B, and C are profoundly transforming the production methods of D\'',
-          highScore: { en: '', note: 'such as 列举 + profoundly transforming + production methods 准确' },
+          highScore: { en: 'Digital technologies such as big data, cloud computing, and artificial intelligence are profoundly transforming the production methods of traditional industries.', note: 'such as 列举 + profoundly transforming + production methods 准确' },
           lowScore: { en: '', note: 'like 不如 such as + deeply 不如 profoundly + how...produce things 不如 production methods。评分 9-11 分档。' }
         }
       },
@@ -943,31 +952,31 @@ export const passagesPart1 = [
           structureAnalysis: '(Online shopping, digital payment, and remote work) → have been integrated into → (the daily lives of Chinese people)',
           whyGood: '① have been integrated into 被动语态表达\'已融入\' ② remote work 准确表达\'远程办公\' ③ 三项主语并列简洁。',
           keyVocab: ['', ''],
-          substitutionGuide: '不会 integrated into → become part of / been incorporated into / blended into；不会 remote work → telecommuting / working from home / distance work',
+          substitutionGuide: '不会 integrated into → become part of / been incorporated into / blended into；不会 remote work → telecommuting / working from home / telework',
           sentencePattern: '\'A、B和C已经融入D的日常生活\' → \'A, B, and C have been integrated into the daily lives of D\'',
-          highScore: { en: '', note: 'have been integrated into + daily lives 地道' },
+          highScore: { en: 'Online shopping, digital payment, and remote work have been integrated into the daily lives of Chinese people.', note: 'have been integrated into + daily lives 地道' },
           lowScore: { en: '', note: 'paying 不如 payment + working from home 不如 remote work + become part of 不如 been integrated into。评分 10-12 分档。' }
         }
       },
       {
         id: 'p9-s4',
         cn: '中国正加快推进数字产业化和产业数字化，致力于建设数字中国。',
-        en: 'China is accelerating the digitalization of industries and the digital transformation of traditional industries, striving to build a digital China.',
+        en: 'China is accelerating digital industrialization and industrial digitalization, striving to build a digital China.',
         annotations: [
           { fragment: 'is accelerating', type: 'structure', label: '正加快推进', detail: 'is accelerating = 正在加速（现在进行时）。accelerate = 加速/加快。' },
-          { fragment: 'digitalization of industries and digital transformation of traditional industries', type: 'vocab', label: '数字产业化和产业数字化', detail: 'digitalization = 数字化。digital transformation = 数字化转型。两个并列的\'化\'字结构。' },
+          { fragment: 'digital industrialization and industrial digitalization', type: 'vocab', label: '数字产业化和产业数字化', detail: 'digital industrialization = 数字产业化，指数字技术形成新产业；industrial digitalization = 产业数字化，指传统产业进行数字化改造。两者方向相反，不能混用。' },
           { fragment: 'striving to build', type: 'structure', label: '致力于建设', detail: 'strive to do = 努力/致力于做。striving 现在分词表示伴随。' }
         ],
         technique: {
           difficulty: 3,
           structure: '主语 + is accelerating + A and B + 现在分词(striving to build...)',
-          structureAnalysis: 'China → is accelerating → (the digitalization of industries) and (the digital transformation of traditional industries) → striving to build (a digital China)',
-          whyGood: '① accelerate 精准表达\'加快推进\' ② digitalization vs digital transformation 区分\'数字化\'和\'数字化转型\' ③ striving to build 表达\'致力于建设\'。',
+          structureAnalysis: 'China → is accelerating → (digital industrialization) and (industrial digitalization) → striving to build (a digital China)',
+          whyGood: '① accelerate 精准表达\'加快推进\' ② digital industrialization 与 industrial digitalization 分别对应\'数字产业化\'和\'产业数字化\' ③ striving to build 表达\'致力于建设\'。',
           keyVocab: ['', '', ''],
-          substitutionGuide: '不会 accelerate → speed up / quicken / fast-track；不会 digitalization → digitization / going digital；不会 striving → working hard / endeavoring / aiming',
+          substitutionGuide: '不会 accelerate → speed up / quicken / fast-track；不会 digital industrialization → growth of digital industries；不会 industrial digitalization → digital upgrading of traditional industries；不会 striving → working hard / endeavoring / aiming',
           sentencePattern: '\'A正加快推进B和C，致力于建设D\' → \'A is accelerating B and C, striving to build D\'',
-          highScore: { en: '', note: 'accelerating + digitalization/transformation 区分 + striving to 表达高级' },
-          lowScore: { en: '', note: 'speeding up 不如 accelerating + two digitals 不够区分 + working hard 不如 striving。评分 8-10 分档。' }
+          highScore: { en: 'China is accelerating digital industrialization and industrial digitalization, striving to build a digital China.', note: 'accelerating + 两个术语方向清晰 + striving to 表达高级' },
+          lowScore: { en: 'China is speeding up the growth of digital industries and the digitalization of traditional industries, trying to build a digital China.', note: 'speeding up 不如 accelerating，trying to 不如 striving to，但意思完整，仍属可接受译法。' }
         }
       }
     ]
@@ -975,6 +984,7 @@ export const passagesPart1 = [
   // p10. 文化自信 (2023.12)
   {
     id: 'p10',
+    level: 'CET-6',
     title: '文化自信',
     year: '2023.12',
     topic: '中国文化',

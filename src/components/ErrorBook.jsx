@@ -44,11 +44,18 @@ export default function ErrorBook({ appData, onDataChange, onNavigate }) {
     const item = err.item
     if (!item) return
     if (item.itemType === 'pattern') {
-      onNavigate('memory', { tab: 'patterns', filter: item.topic || 'all' })
+      const idx = patterns.findIndex(p => p.id === item.id)
+      onNavigate('memory', { tab: 'patterns', startFrom: Math.max(0, idx) })
     } else if (item.itemType === 'phrase') {
-      onNavigate('memory', { tab: 'phrases', filter: item.topic || 'all' })
+      const idx = topicPhrases.findIndex(p => p.id === item.id)
+      onNavigate('memory', { tab: 'phrases', startFrom: Math.max(0, idx) })
     } else if (item.itemType === 'vocab') {
-      onNavigate('memory', { tab: 'vocab', filter: item.topic || 'all' })
+      const allVocab = []
+      Object.entries(topicVocab).forEach(([topic, words]) => {
+        words.forEach(w => allVocab.push({ ...w, topic, id: `${topic}::${w.cn}` }))
+      })
+      const idx = allVocab.findIndex(v => v.id === item.id)
+      onNavigate('memory', { tab: 'vocab', startFrom: Math.max(0, idx) })
     }
   }
 

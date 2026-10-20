@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'cet-translator-data';
+const SCHEMA_VERSION = 2;
 
 const INTERVALS = [
   0,
@@ -15,10 +16,13 @@ const INTERVALS = [
 const STAGE_NAMES = ['新学', '20分钟', '1小时', '1天', '2天', '6天', '14天', '30天', '已掌握'];
 
 const defaultData = () => ({
+  version: SCHEMA_VERSION,
   patternProgress: {},
   phraseProgress: {},
   vocabProgress: {},
+  sentenceProgress: {},
   passageProgress: {},
+  sentenceHistory: [],
   errorBook: [],
   stats: {
     dailyStreak: 0,
@@ -29,6 +33,15 @@ const defaultData = () => ({
     phraseAccuracy: {},
     vocabAccuracy: {},
     topicCount: {},
+  },
+  dailyProgress: {
+    date: new Date().toDateString(),
+    sentencesDone: 0,
+    itemsReviewed: 0,
+  },
+  dailyGoal: {
+    sentences: 5,
+    items: 15,
   },
   dailyQueue: {
     date: new Date().toDateString(),
@@ -44,7 +57,17 @@ export function loadData() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultData();
     const parsed = JSON.parse(raw);
-    return { ...defaultData(), ...parsed };
+    const defaults = defaultData();
+    // 浅合并会让旧备份缺失的 stats/dailyGoal 等字段整个丢失，这里对固定结构做深合并
+    return {
+      ...defaults,
+      ...parsed,
+      version: SCHEMA_VERSION,
+      stats: { ...defaults.stats, ...(parsed.stats || {}) },
+      dailyProgress: { ...defaults.dailyProgress, ...(parsed.dailyProgress || {}) },
+      dailyGoal: { ...defaults.dailyGoal, ...(parsed.dailyGoal || {}) },
+      dailyQueue: { ...defaults.dailyQueue, ...(parsed.dailyQueue || {}) },
+    };
   } catch {
     return defaultData();
   }
@@ -71,12 +94,31 @@ export function importData(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        const data = JSON.parse(e.target.result);
-        if (!data.patternProgress && !data.phraseProgress && !data.passageProgress) {
+        const incoming = JSON.parse(e.target.result);
+        const looksValid = incoming && typeof incoming === 'object' &&
+          ['patternProgress', 'phraseProgress', 'vocabProgress', 'sentenceProgress', 'passageProgress', 'stats', 'errorBook']
+            .some(key => incoming[key] != null);
+        if (!looksValid) {
           reject(new Error('无效的备份文件'));
           return;
         }
-        const merged = { ...defaultData(), ...data };
+        const current = loadData();
+        // 合并而不是整体覆盖：导入只会补齐/更新条目，不会抹掉本机已有的复习记录
+        const merged = {
+          ...current,
+          ...incoming,
+          version: SCHEMA_VERSION,
+          patternProgress: { ...current.patternProgress, ...(incoming.patternProgress || {}) },
+          phraseProgress: { ...current.phraseProgress, ...(incoming.phraseProgress || {}) },
+          vocabProgress: { ...current.vocabProgress, ...(incoming.vocabProgress || {}) },
+          sentenceProgress: { ...current.sentenceProgress, ...(incoming.sentenceProgress || {}) },
+          passageProgress: { ...current.passageProgress, ...(incoming.passageProgress || {}) },
+          sentenceHistory: Array.isArray(incoming.sentenceHistory)
+            ? [...(current.sentenceHistory || []), ...incoming.sentenceHistory].slice(-500)
+            : current.sentenceHistory,
+          stats: { ...current.stats, ...(incoming.stats || {}) },
+          errorBook: Array.isArray(incoming.errorBook) ? incoming.errorBook : current.errorBook,
+        };
         saveData(merged);
         resolve(merged);
       } catch {
@@ -142,7 +184,7 @@ export function ratePattern(patternId, selfRating, sourceInfo) {
     }
   }
 
-  updateDailyStats(data);
+  updateDailyStats(data, 'item');
   saveData(data);
   return data;
 }
@@ -183,6 +225,7 @@ export function ratePhrase(phraseId, selfRating, sourceInfo) {
     }
   }
 
+  updateDailyStats(data, "item");
   saveData(data);
   return data;
 }
@@ -223,11 +266,80 @@ export function rateVocab(vocabKey, selfRating) {
     }
   }
 
+  updateDailyStats(data, "item");
   saveData(data);
   return data;
 }
 
-export function completePassage(passageId, topic, sentenceResults) {
+// 句子级 SRS：以「看到中文，产出英文」为复习单位。
+// 只有真正提交过译文（并完成改写）的句子才进入调度，跳过的只记历史。
+export function rateSentence(sentenceId, selfRating, meta = {}) {
+  const data = loadData();
+  const now = Date.now();
+
+  data.sentenceHistory = [
+    ...(data.sentenceHistory || []),
+    {
+      sentenceId,
+      passageId: meta.passageId || null,
+      sentenceIndex: meta.sentenceIndex ?? null,
+      rating: selfRating,
+      firstTranslation: meta.firstTranslation || '',
+      revision: meta.revision || '',
+      skipped: Boolean(meta.skipped),
+      countsForSrs: Boolean(meta.countsForSrs),
+      at: now,
+    },
+  ].slice(-500);
+
+  if (!meta.countsForSrs) {
+    saveData(data);
+    return data;
+  }
+
+  const prev = data.sentenceProgress[sentenceId] || {
+    stage: 0, nextReview: null, lastReview: null,
+    correctCount: 0, wrongCount: 0, firstSeenAt: now, sources: [],
+  };
+  const correct = selfRating >= 2;
+  const stageDelta = selfRating >= 3 ? 2 : selfRating >= 2 ? 1 : selfRating >= 1 ? -1 : -2;
+  const newStage = Math.max(0, Math.min(8, prev.stage + stageDelta));
+  const nextReview = correct
+    ? now + INTERVALS[Math.min(newStage, 8)]
+    : now + INTERVALS[Math.max(Math.min(newStage, 8), 1)];
+
+  const sources = [...(prev.sources || [])];
+  if (meta.passageId && !sources.find(s => s.passageId === meta.passageId && s.sentenceIndex === meta.sentenceIndex)) {
+    sources.push({ passageId: meta.passageId, sentenceIndex: meta.sentenceIndex, rating: selfRating, at: now });
+  }
+
+  data.sentenceProgress[sentenceId] = {
+    stage: newStage,
+    nextReview,
+    lastReview: now,
+    correctCount: prev.correctCount + (correct ? 1 : 0),
+    wrongCount: prev.wrongCount + (correct ? 0 : 1),
+    firstSeenAt: prev.firstSeenAt || now,
+    sources,
+  };
+
+  if (selfRating <= 1) {
+    const exists = data.errorBook.find(e => e.type === 'sentence' && e.id === sentenceId);
+    if (!exists) {
+      data.errorBook.unshift({
+        type: 'sentence', id: sentenceId, addedAt: now,
+        sourceInfo: { passageId: meta.passageId, sentenceIndex: meta.sentenceIndex },
+        errorType: selfRating === 0 ? '完全遗忘' : '记忆模糊', reviewed: false,
+      });
+    }
+  }
+
+  updateDailyStats(data, 'item');
+  saveData(data);
+  return data;
+}
+
+export function completePassage(passageId, topic, sentenceResults, passageInput = '') {
   const data = loadData();
   const now = Date.now();
 
@@ -246,12 +358,13 @@ export function completePassage(passageId, topic, sentenceResults) {
     weakSentences,
     overallRating,
     lastSentenceResults: sentenceResults,
+    passageInput,
   };
 
   data.stats.passagesCompleted = (data.stats.passagesCompleted || 0) + 1;
   data.stats.topicCount[topic] = (data.stats.topicCount[topic] || 0) + 1;
 
-  updateDailyStats(data);
+  updateDailyStats(data, 'passage');
   generateDailyQueue(data);
   saveData(data);
   return data;
@@ -283,7 +396,7 @@ export function generateDailyQueue(data) {
   return data;
 }
 
-export function getDailyReviewItems(patterns, phrases, vocabItems) {
+export function getDailyReviewItems(patterns, phrases, vocabItems, sentenceItems = []) {
   const data = loadData();
   const now = Date.now();
 
@@ -311,7 +424,15 @@ export function getDailyReviewItems(patterns, phrases, vocabItems) {
     })
     .filter(Boolean);
 
-  return [...patternItems, ...phraseItems, ...vocabItemsList].sort((a, b) =>
+  const sentenceList = Object.entries(data.sentenceProgress || {})
+    .filter(([_, p]) => p.nextReview && p.nextReview <= now && p.stage < 8)
+    .map(([id, p]) => {
+      const sentence = sentenceItems.find(s => s.id === id);
+      return sentence ? { ...sentence, progress: p, itemType: 'sentence' } : null;
+    })
+    .filter(Boolean);
+
+  return [...patternItems, ...phraseItems, ...vocabItemsList, ...sentenceList].sort((a, b) =>
     (a.progress.stage || 0) - (b.progress.stage || 0)
   );
 }
@@ -374,17 +495,62 @@ export function getTodayPassage(passages) {
   return pick;
 }
 
-function updateDailyStats(data) {
+function updateDailyStats(data, type = 'sentence') {
   const today = new Date().toDateString();
-  if (data.stats.lastPracticeDate === today) return;
-  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toDateString();
-  if (data.stats.lastPracticeDate === yesterday || !data.stats.lastPracticeDate) {
-    data.stats.dailyStreak = (data.stats.dailyStreak || 0) + 1;
-  } else {
-    data.stats.dailyStreak = 1;
+  // Reset daily progress if new day
+  if (!data.dailyProgress) data.dailyProgress = { date: today, sentencesDone: 0, itemsReviewed: 0 }
+  if (data.dailyProgress.date !== today) {
+    data.dailyProgress = { date: today, sentencesDone: 0, itemsReviewed: 0 }
   }
-  data.stats.lastPracticeDate = today;
-  data.stats.totalSentences = (data.stats.totalSentences || 0) + 1;
+  if (!data.dailyGoal) data.dailyGoal = { sentences: 5, items: 15 }
+
+  // Streak update (once per day)
+  if (data.stats.lastPracticeDate !== today) {
+    const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toDateString();
+    if (data.stats.lastPracticeDate === yesterday || !data.stats.lastPracticeDate) {
+      data.stats.dailyStreak = (data.stats.dailyStreak || 0) + 1;
+    } else {
+      data.stats.dailyStreak = 1;
+    }
+    data.stats.lastPracticeDate = today;
+  }
+
+  if (type === 'sentence') {
+    data.stats.totalSentences = (data.stats.totalSentences || 0) + 1;
+    data.dailyProgress.sentencesDone += 1;
+  } else if (type === 'item') {
+    data.stats.totalItems = (data.stats.totalItems || 0) + 1;
+    data.dailyProgress.itemsReviewed += 1;
+  }
+  // 'passage' 只更新连续天数，不重复累计句子/条目
+}
+
+export function recordSentenceDone() {
+  const data = loadData();
+  updateDailyStats(data, 'sentence');
+  saveData(data);
+  return data;
+}
+
+export function recordItemReviewed() {
+  const data = loadData();
+  const today = new Date().toDateString();
+  if (!data.dailyProgress) data.dailyProgress = { date: today, sentencesDone: 0, itemsReviewed: 0 }
+  if (data.dailyProgress.date !== today) {
+    data.dailyProgress = { date: today, sentencesDone: 0, itemsReviewed: 0 }
+  }
+  data.dailyProgress.itemsReviewed += 1;
+  saveData(data);
+  return data;
+}
+
+export function getTodayProgress() {
+  const data = loadData();
+  const today = new Date().toDateString();
+  const dp = data.dailyProgress || { date: today, sentencesDone: 0, itemsReviewed: 0 }
+  const goal = data.dailyGoal || { sentences: 5, items: 15 }
+  if (dp.date !== today) return { sentencesDone: 0, itemsReviewed: 0, goal }
+  return { sentencesDone: dp.sentencesDone, itemsReviewed: dp.itemsReviewed, goal }
 }
 
 export function markErrorReviewed(errorKey) {
@@ -417,6 +583,7 @@ export function clearReviewedErrors() {
 
 export function resetAllData() {
   localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem('cet-walkthrough-progress');
   return defaultData();
 }
 
